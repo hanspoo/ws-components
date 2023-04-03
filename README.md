@@ -92,10 +92,6 @@ sudo -u postgres ./bin/init-db.sh
 
 Se crea un usuario llamado starter, con contraseña starter y base de datos del mismo nombre.
 
-Se sugiere modificar .env.local para cambiar esto, variables:
-
-DB_HOST,DB_USER,DB_PASS y DB_NAME
-
 Ejecutar backend
 
 ```
@@ -105,7 +101,7 @@ nx serve api
 Ejecutar front en otro terminal
 
 ```
-nx serve starter
+nx serve front
 ```
 
 Ir a al navegador:
