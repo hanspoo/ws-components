@@ -1,5 +1,5 @@
 import { PersistGate } from 'redux-persist/integration/react'
-import { persistor, store } from '@flash-ws/reductor';
+import { persistor, store } from '@starter-ws/reductor';
 import { StrictMode } from 'react';
 
 import * as ReactDOM from 'react-dom/client';

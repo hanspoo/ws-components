@@ -8,7 +8,7 @@ import {
   Spin,
   Typography,
 } from 'antd';
-import { SignupRequest } from '@flash-ws/api-interfaces';
+import { SignupRequest } from '@starter-ws/api-interfaces';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 

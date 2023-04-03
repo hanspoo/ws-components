@@ -10,9 +10,9 @@ import React, { useState } from 'react';
 import {
   LoginState,
   LoginSection,
-} from '@flash-ws/components';
+} from '@starter-ws/components';
 import { useSelector } from 'react-redux';
-import { RootState } from '@flash-ws/reductor';
+import { RootState } from '@starter-ws/reductor';
 
 
 const { Header, Sider, Content } = Layout;

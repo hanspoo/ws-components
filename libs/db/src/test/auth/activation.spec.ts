@@ -2,7 +2,7 @@ import { SolicitudBuilder } from "./auth-test-utils";
 import { inicializarSistema } from "../../lib/inicializarSistema";
 import { CrearUsuarioService } from "../../lib/auth/CrearUsuarioService";
 import { FinderSolicitudesRegistro } from "../../lib/auth/FinderSolicitudesRegistro";
-import { randomCseg, randomEmail } from "@flash-ws/shared";
+import { randomCseg, randomEmail } from "@starter-ws/shared";
 
 beforeAll(async () => {
   await inicializarSistema();
@@ -74,7 +74,7 @@ describe("activacion", () => {
   describe("servicio integrado", () => {
     it("sin solicitud creada, debe dar error de email", async () => {
       const s = new FinderSolicitudesRegistro();
-      const response = await s.execute("info@myapp.com", 123456);
+      const response = await s.execute("info@starter.com", 123456);
       expect(response.success).toBe(false);
       expect(response.msg).toContain("REG001");
     });

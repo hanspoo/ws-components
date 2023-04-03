@@ -1,4 +1,4 @@
-import { cleanupEmail } from "@flash-ws/mail-utils";
+import { cleanupEmail } from "@starter-ws/mail-utils";
 import { PassService } from "./PassService";
 import { dataSource } from "../data-source";
 import { PermisoUsarEmail } from "../entity/auth/permiso-usar-email.entity";

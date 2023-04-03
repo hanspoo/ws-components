@@ -4,13 +4,13 @@ import {
   isValidEmail,
   Mailer,
   NodeMailer,
-} from "@flash-ws/mail-utils";
+} from "@starter-ws/mail-utils";
 
 import { Usuario } from "../entity/auth/usuario.entity";
 import { SolicitudAutenticarEmail } from "../entity/auth/solicitud-autenticar-email.entity";
 
 import { RecoverPasswordServiceResult } from "./RecoverPasswordServiceResult";
-import { errMessage, genCodSeguridad } from "@flash-ws/shared";
+import { errMessage, genCodSeguridad } from "@starter-ws/shared";
 
 export class RecoverPasswordService {
   codigoSeguridad: any;
@@ -43,25 +43,25 @@ export class RecoverPasswordService {
     this.mailer.send({
       from: '"Hans Poo" <hanscpoo@welinux.cl>', // sender address
       to: this.email,
-      subject: "Recuperación de contraseña en myapp",
+      subject: "Recuperación de contraseña en starter",
       text: `
         Hola,
 
-        Para crear una nueva contraseña en myapp, ingrese este código de confirmación en la pantalla de su navegador.
+        Para crear una nueva contraseña en starter, ingrese este código de confirmación en la pantalla de su navegador.
         
         ${cseg}
                 
-        El equipo de myapp
+        El equipo de starter
         ¿Necesita ayuda? Póngase en contacto con nosotros.        
         `,
       html: `
         <p>Hola,</p>
 
-        <p> Para crear una nueva contraseña en myapp, ingrese este c&oacute;digo de confirmaci&oacute;n en la pantalla de su navegador.</p>
+        <p> Para crear una nueva contraseña en starter, ingrese este c&oacute;digo de confirmaci&oacute;n en la pantalla de su navegador.</p>
          
          <h1>${cseg}</h1>
                  
-        <p> El equipo de myapp<br>
+        <p> El equipo de starter<br>
          &iquest;Necesita ayuda?&#160;P&oacute;ngase en contacto con nosotros.</p>        
         `,
     });

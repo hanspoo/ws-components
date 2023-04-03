@@ -3,10 +3,10 @@ import {
   dataSource,
   inicializarSistema,
   SolicitudAutenticarEmail,
-} from "@flash-ws/db";
+} from "@starter-ws/db";
 import request from "supertest";
 import { app } from "../../app";
-import { randomEmail, randomCseg } from "@flash-ws/shared";
+import { randomEmail, randomCseg } from "@starter-ws/shared";
 
 const sendMailMock = jest.fn();
 jest.mock("nodemailer");
@@ -20,7 +20,7 @@ beforeEach(() => {
 beforeAll(async () => {
   await inicializarSistema();
 });
-const email = "admin@myapp.com";
+const email = "admin@starter.com";
 describe("solicitud recup pass", () => {
   it("con email valido da 200", async () => {
     const response = await request(app)

@@ -1,4 +1,4 @@
-import { inicializarSistema } from "@flash-ws/db";
+import { inicializarSistema } from "@starter-ws/db";
 
 import request = require("supertest");
 import { app } from "../../app";

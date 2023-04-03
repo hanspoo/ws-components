@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from "../../auth-form.module.css";
 import { Button, Form, Input, Spin, Typography } from 'antd';
-import { ExecuteChangePassRequest } from '@flash-ws/api-interfaces';
+import { ExecuteChangePassRequest } from '@starter-ws/api-interfaces';
 import axios from 'axios';
 
 const { Title } = Typography;

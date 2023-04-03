@@ -2,7 +2,7 @@ import * as express from "express";
 import multer = require("multer");
 import { Request, Response } from "express";
 
-import { dataSource, Archivo } from "@flash-ws/db";
+import { dataSource, Archivo } from "@starter-ws/db";
 
 const UPLOAD_FOLDER = process.env.NX_UPLOAD_FOLDER || `uploads`;
 

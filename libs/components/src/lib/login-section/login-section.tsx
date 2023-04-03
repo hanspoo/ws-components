@@ -24,13 +24,13 @@ export function LoginSection(props: LoginSectionProps) {
 
   return <Layout className={styles["layout"]}>
     <Header className={styles["header"]}>
-      <Typography.Title level={2} className={styles["title"]}><FileTextOutlined /> myapp</Typography.Title></Header>
+      <Typography.Title level={2} className={styles["title"]}><FileTextOutlined /> starter</Typography.Title></Header>
     <Content>
       <div className={styles["container"]}>
         <DoLoginSection {...props} />
       </div>
     </Content>
-    <Footer>myapp, desarrollado por MyCompany</Footer>
+    <Footer>starter, desarrollado por MyCompany</Footer>
   </Layout>
 }
 export function DoLoginSection(props: LoginSectionProps) {

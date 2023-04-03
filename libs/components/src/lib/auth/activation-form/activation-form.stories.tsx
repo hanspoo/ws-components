@@ -14,4 +14,4 @@ const Template: ComponentStory<typeof ActivationForm> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = { email: "newuser@myapp.com" };
+Primary.args = { email: "newuser@starter.com" };

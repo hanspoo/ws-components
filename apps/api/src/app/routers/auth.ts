@@ -5,7 +5,7 @@ import {
   SignupRequest,
   RequestValidaCodSeguridad,
   ExecuteChangePassRequest,
-} from "@flash-ws/api-interfaces";
+} from "@starter-ws/api-interfaces";
 import {
   CrearUsuarioService,
   ExecuteChangePassService,
@@ -15,7 +15,7 @@ import {
   RecoverPasswordService,
   SignupService,
   ValidarSolicitudAutenticarEmail,
-} from "@flash-ws/db";
+} from "@starter-ws/db";
 import * as express from "express";
 import { Request, Response } from "express";
 

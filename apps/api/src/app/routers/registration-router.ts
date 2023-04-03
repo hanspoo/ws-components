@@ -1,7 +1,7 @@
 import {
   SignupRequest,
   RequestValidaCodSeguridad,
-} from "@flash-ws/api-interfaces";
+} from "@starter-ws/api-interfaces";
 import {
   CrearUsuarioService,
   dataSource,
@@ -10,7 +10,7 @@ import {
   RegistrationEmailStageService,
   SolicitudRegistro,
   ValidarSolicitudAutenticarEmail,
-} from "@flash-ws/db";
+} from "@starter-ws/db";
 import { randomInt } from "crypto";
 import * as express from "express";
 import { Request, Response } from "express";

@@ -1,12 +1,12 @@
-import { RequestValidaCodSeguridad } from "@flash-ws/api-interfaces";
+import { RequestValidaCodSeguridad } from "@starter-ws/api-interfaces";
 import {
   dataSource,
   inicializarSistema,
   SolicitudAutenticarEmail,
-} from "@flash-ws/db";
+} from "@starter-ws/db";
 import request from "supertest";
 import { app } from "../app";
-import { randomEmail, randomCseg } from "@flash-ws/shared";
+import { randomEmail, randomCseg } from "@starter-ws/shared";
 
 const repoSol = dataSource.getRepository(SolicitudAutenticarEmail);
 

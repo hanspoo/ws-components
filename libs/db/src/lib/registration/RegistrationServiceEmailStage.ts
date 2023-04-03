@@ -1,5 +1,5 @@
-import { cleanupEmail, isValidEmail, mailer } from "@flash-ws/mail-utils";
-import { genCodSeguridad } from "@flash-ws/shared";
+import { cleanupEmail, isValidEmail, mailer } from "@starter-ws/mail-utils";
+import { genCodSeguridad } from "@starter-ws/shared";
 import { dataSource } from "../data-source";
 import { SolicitudAutenticarEmail } from "../entity/auth/solicitud-autenticar-email.entity";
 import { Usuario } from "../entity/auth/usuario.entity";
@@ -53,7 +53,7 @@ export class RegistrationEmailStageService {
     const response = transporter.sendMail({
       from: '"Hans Poo" <hanscpoo@welinux.cl>', // sender address
       to: this.email,
-      subject: "Registro en myapp, validando email",
+      subject: "Registro en starter, validando email",
       html: `
         <p>Hola,</p>
 
@@ -64,7 +64,7 @@ export class RegistrationEmailStageService {
          
          <p>Si no encuentra d&oacute;nde introducir el c&oacute;digo,&#160;vuelva a introducir su correo electr&oacute;nico aqu&iacute;..</p>
         
-        <p> El equipo de myapp<br>
+        <p> El equipo de starter<br>
          &iquest;Necesita ayuda?&#160;P&oacute;ngase en contacto con nosotros.</p>
         `,
     });

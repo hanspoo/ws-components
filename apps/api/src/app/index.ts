@@ -1,11 +1,11 @@
 import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import session from "cookie-session";
-import { Message } from "@flash-ws/api-interfaces";
+import { Message } from "@starter-ws/api-interfaces";
 import { auth } from "./routers/auth";
 import { me } from "./routers/me";
 import { archivos } from "./routers/archivos";
-import { TokenService } from "@flash-ws/db";
+import { TokenService } from "@starter-ws/db";
 import { registration } from "./routers/registration-router";
 
 type ReqWithSession = Request<
@@ -42,7 +42,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 app.use(express.json());
-app.use(express.static("../flash"));
+app.use(express.static("../starter"));
 const authMiddleware = async function (
   req: ReqWithSession,
   res: Response,

@@ -1,4 +1,4 @@
-import { randomEmail, randomCseg } from "@flash-ws/shared";
+import { randomEmail, randomCseg } from "@starter-ws/shared";
 import { randomBytes } from "crypto";
 import { dataSource } from "../../lib/data-source";
 import {

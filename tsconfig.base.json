@@ -28,25 +28,25 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@flash-ws/api-interfaces": [
+      "@starter-ws/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
-      "@flash-ws/components": [
+      "@starter-ws/components": [
         "libs/components/src/index.ts"
       ],
-      "@flash-ws/dao": [
+      "@starter-ws/dao": [
         "libs/dao/src/index.ts"
       ],
-      "@flash-ws/db": [
+      "@starter-ws/db": [
         "libs/db/src/index.ts"
       ],
-      "@flash-ws/mail-utils": [
+      "@starter-ws/mail-utils": [
         "libs/mail-utils/src/index.ts"
       ],
-      "@flash-ws/reductor": [
+      "@starter-ws/reductor": [
         "libs/reductor/src/index.ts"
       ],
-      "@flash-ws/shared": [
+      "@starter-ws/shared": [
         "libs/shared/src/index.ts"
       ]
     }

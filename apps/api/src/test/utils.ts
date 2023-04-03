@@ -1,4 +1,4 @@
-import { dataSource, Archivo } from "@flash-ws/db";
+import { dataSource, Archivo } from "@starter-ws/db";
 
 const archivo = {
   originalname: "orden-un-local.xls",

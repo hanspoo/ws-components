@@ -3,7 +3,7 @@ import styles from "../../auth-form.module.css";
 import { Button, Form, Input, Spin, Typography } from 'antd';
 
 import axios from 'axios';
-import { RecoverPasswordRequest } from '@flash-ws/api-interfaces';
+import { RecoverPasswordRequest } from '@starter-ws/api-interfaces';
 
 const { Title } = Typography;
 

@@ -1,10 +1,10 @@
 // dado un email debe generar un registro de recuperación de contraseña y enviar un email
 
-import { Mailer, SendMailArgs } from "@flash-ws/mail-utils";
+import { Mailer, SendMailArgs } from "@starter-ws/mail-utils";
 import { RecoverPasswordService } from "../../lib/auth/RecoverPasswordService";
 import { inicializarSistema } from "../../lib/inicializarSistema";
 import { ValidarSolicitudAutenticarEmail } from "../../lib/auth/ValidarSolicitudAutenticarEmail";
-import { randomCseg, randomEmail } from "@flash-ws/shared";
+import { randomCseg, randomEmail } from "@starter-ws/shared";
 import { MotivoPermiso } from "../../lib/entity/auth/permiso-usar-email.entity";
 
 beforeAll(async () => {
@@ -18,7 +18,7 @@ class MockMailer implements Mailer {
     this.params = params;
   }
 }
-const email = "admin@myapp.com";
+const email = "admin@starter.com";
 
 describe("recuperación de contraseña", () => {
   describe("mailer", () => {
@@ -33,7 +33,7 @@ describe("recuperación de contraseña", () => {
   });
   describe("solicitud", () => {
     it("debe generar y devolver el registro de recuperacion", async () => {
-      const s = new RecoverPasswordService("admin@myapp.com");
+      const s = new RecoverPasswordService("admin@starter.com");
       const mock = new MockMailer();
       s.mailer = mock;
       const solicRecup = await s.execute();
@@ -41,7 +41,7 @@ describe("recuperación de contraseña", () => {
       expect(solicRecup).toBeTruthy();
     });
     it("debe establecer correctamente el correo de la solicitud", async () => {
-      const email = "admin@myapp.com";
+      const email = "admin@starter.com";
       const s = new RecoverPasswordService(email);
       const mock = new MockMailer();
       s.mailer = mock;

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "flash-ws",
+  "npmScope": "starter-ws",
   "affected": {
     "defaultBase": "main"
   },
@@ -89,5 +89,5 @@
       }
     }
   },
-  "defaultProject": "flash"
+  "defaultProject": "front"
 }

@@ -1,16 +1,16 @@
 import { cleanupEmail, isValidEmail } from "../lib/mail-utils";
 
-const email = "admin@myapp.com";
+const email = "admin@starter.com";
 describe("email utils", () => {
   describe("cleanup", () => {
     it("debe eliminar blancos al princicio", () => {
-      expect(cleanupEmail("   admin@myapp.com")).toBe(email);
+      expect(cleanupEmail("   admin@starter.com")).toBe(email);
     });
     it("debe eliminar blancos al final", () => {
-      expect(cleanupEmail("admin@myapp.com   ")).toBe(email);
+      expect(cleanupEmail("admin@starter.com   ")).toBe(email);
     });
     it("debe convertir a minúsculas", () => {
-      expect(cleanupEmail("ADMIN@myapp.com   ")).toBe(email);
+      expect(cleanupEmail("ADMIN@starter.com   ")).toBe(email);
     });
   });
   describe("valid email", () => {

@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
-import { dataSource, inicializarSistema } from '@flash-ws/db';
+import { dataSource, inicializarSistema } from '@starter-ws/db';
 import { app } from './app';
 
 async function f() {

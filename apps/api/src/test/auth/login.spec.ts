@@ -1,5 +1,5 @@
-import { LoginRequest } from "@flash-ws/api-interfaces";
-import { dataSource, Empresa, inicializarSistema } from "@flash-ws/db";
+import { LoginRequest } from "@starter-ws/api-interfaces";
+import { dataSource, Empresa, inicializarSistema } from "@starter-ws/db";
 import request = require("supertest");
 import { app } from "../../app";
 
@@ -17,7 +17,7 @@ beforeAll(async () => {
   await dataSource.getRepository(Empresa).save(empresa);
 });
 const credentials: LoginRequest = {
-  email: "admin@myapp.com",
+  email: "admin@starter.com",
   password: "123456",
 };
 
@@ -42,7 +42,7 @@ describe("login", () => {
     expect(landingResult.statusCode).toEqual(200);
   });
   it("recuperar contraseña", async () => {
-    const data = { email: "admin@myapp.com" };
+    const data = { email: "admin@starter.com" };
     const response = await request(app)
       .post("/api/auth/recover-pass")
       .send(data);

@@ -1,4 +1,4 @@
-export const randomEmail = () => "email" + dameRandom() + "@myapp.com";
+export const randomEmail = () => "email" + dameRandom() + "@starter.com";
 export const randomCseg = () => dameRandom();
 
 function dameRandom() {

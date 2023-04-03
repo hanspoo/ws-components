@@ -3,7 +3,7 @@ import styles from "../../auth-form.module.css";
 import { Button, Form, Input, Spin, Typography } from 'antd';
 
 
-import { RegistrationRequest } from '@flash-ws/api-interfaces';
+import { RegistrationRequest } from '@starter-ws/api-interfaces';
 import customAxios from '../../customAxios';
 
 

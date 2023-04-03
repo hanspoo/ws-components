@@ -1,12 +1,12 @@
 // import nodemailer from "nodemailer";
-import { ExecuteChangePassRequest } from "@flash-ws/api-interfaces";
+import { ExecuteChangePassRequest } from "@starter-ws/api-interfaces";
 import {
   dataSource,
   inicializarSistema,
   MotivoPermiso,
   PermisoUsarEmail,
-} from "@flash-ws/db";
-import { randomEmail } from "@flash-ws/shared";
+} from "@starter-ws/db";
+import { randomEmail } from "@starter-ws/shared";
 import { randomBytes } from "crypto";
 import request from "supertest";
 import { app } from "../../app";
@@ -36,7 +36,7 @@ describe("cambia la password", () => {
     expect(response.status).toBe(400);
   });
   it("cambia la pass con datos válidos", async () => {
-    const email = "admin@myapp.com";
+    const email = "admin@starter.com";
     const password = randomBytes(5).toString("hex");
 
     const [, token] = await crearPermisoFake(email);

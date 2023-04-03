@@ -9,9 +9,9 @@ export async function inicializarSistema(): Promise<Empresa> {
     await dataSource.synchronize(true);
   }
   const repoEmpresa = dataSource.getRepository(Empresa);
-  const e = await repoEmpresa.findOne({ where: { nombre: "myapp" } });
+  const e = await repoEmpresa.findOne({ where: { nombre: "starter" } });
   if (e) {
-    console.log(`Inicialización cancelada, empresa myapp ya existe`);
+    console.log(`Inicialización cancelada, empresa starter ya existe`);
     return e;
   }
 
@@ -23,12 +23,12 @@ export async function inicializarSistema(): Promise<Empresa> {
 export async function crearEmpresa(): Promise<Empresa> {
   const repoEmpresa = dataSource.getRepository(Empresa);
   const e = repoEmpresa.create({
-    nombre: "myapp",
+    nombre: "starter",
     identLegal: "76531540-9",
   });
 
   const user = dataSource.getRepository(Usuario).create({
-    email: "admin@myapp.com",
+    email: "admin@starter.com",
     password: await new PassService().hash("123456"),
     nombre: "Admin",
   });

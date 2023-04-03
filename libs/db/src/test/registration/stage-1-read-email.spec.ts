@@ -1,7 +1,7 @@
 // para el registro, la única validación es que el email sea válido y no esté usado por otro usuario
 // validar que genere y envie el código de validación
 
-import { randomEmail } from "@flash-ws/shared";
+import { randomEmail } from "@starter-ws/shared";
 import { dataSource } from "../../lib/data-source";
 import { SolicitudAutenticarEmail } from "../../lib/entity/auth/solicitud-autenticar-email.entity";
 import { inicializarSistema } from "../../lib/inicializarSistema";
@@ -31,7 +31,7 @@ describe("registration", () => {
     expect(response.success).toBe(false);
   });
   it("email existente da error", async () => {
-    const service = new RegistrationEmailStageService("admin@myapp.com");
+    const service = new RegistrationEmailStageService("admin@starter.com");
     const response = await service.execute();
     expect(response.success).toBe(false);
   });

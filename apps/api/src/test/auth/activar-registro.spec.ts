@@ -1,8 +1,8 @@
 import {
   ActivationRequest,
   ActivationResponse,
-} from '@flash-ws/api-interfaces';
-import { inicializarSistema } from '@flash-ws/db';
+} from '@starter-ws/api-interfaces';
+import { inicializarSistema } from '@starter-ws/db';
 import request from 'supertest';
 import { app } from '../../app';
 
@@ -10,7 +10,7 @@ beforeAll(inicializarSistema);
 
 const bodyReq: ActivationRequest = {
   cseg: 123456,
-  email: 'info@myapp.com',
+  email: 'info@starter.com',
 };
 describe('servicio activacion registro usuarios', () => {
   it('existe el endpoint', async () => {

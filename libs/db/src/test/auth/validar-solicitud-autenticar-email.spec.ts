@@ -6,7 +6,7 @@ import {
   ValidarSolicitudAutenticarEmail,
   ValidaSolicitudAutenticarEmailResponse,
 } from "../../lib/auth/ValidarSolicitudAutenticarEmail";
-import { randomCseg, randomEmail } from "@flash-ws/shared";
+import { randomCseg, randomEmail } from "@starter-ws/shared";
 import { creaSolicitudAutenticar } from "./auth-test-utils";
 import { MotivoPermiso } from "../../lib/entity/auth/permiso-usar-email.entity";
 

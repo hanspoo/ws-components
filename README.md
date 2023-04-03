@@ -34,7 +34,7 @@ Incorporamos un buen proceso de login, registro y recuperación de contraseñas 
 
 Puede que queden algunas cosas vestigiales del sistema original de pallets por ahí danto vueltas Les pedimos disculpas si es el caso nos avisan para irlas removiendo o nos mandan un MR.
 
-Al app principal React, y la base de datos llevan el nombre flash, en el sentido de que les va ayudar hacer muy rápido sus proyectos.
+Al app principal React, y la base de datos llevan el nombre starter, en el sentido de que les va ayudar hacer muy rápido sus proyectos.
 
 Finalmente: Disculpas por el spanglish, estamos realizando un refactor global para dejar todo en español.
 
@@ -90,7 +90,7 @@ Crear usuario y base de datos postgresql:
 sudo -u postgres ./bin/init-db.sh
 ```
 
-Se crea un usuario llamado flash, con contraseña flash y base de datos del mismo nombre.
+Se crea un usuario llamado starter, con contraseña starter y base de datos del mismo nombre.
 
 Se sugiere modificar .env.local para cambiar esto, variables:
 
@@ -105,7 +105,7 @@ nx serve api
 Ejecutar front en otro terminal
 
 ```
-nx serve flash
+nx serve starter
 ```
 
 Ir a al navegador:
@@ -113,7 +113,7 @@ http://localhost:4200
 
 Ahora se puede logear con el:
 usuario:
-admin@myapp.com
+admin@starter.com
 password:
 123456
 

@@ -1,4 +1,4 @@
-import { RootState } from '@flash-ws/reductor';
+import { RootState } from '@starter-ws/reductor';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 

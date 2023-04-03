@@ -6,7 +6,7 @@ import {
   Input,
   Spin,
 } from 'antd';
-import { SignupRequest } from '@flash-ws/api-interfaces';
+import { SignupRequest } from '@starter-ws/api-interfaces';
 import { UserData } from '../UserData';
 import { CompanyData } from '../CompanyData';
 import customAxios from '../../customAxios';

@@ -1,11 +1,11 @@
-import { RootState } from '@flash-ws/reductor';
+import { RootState } from '@starter-ws/reductor';
 import { Button, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '@flash-ws/reductor';
+import { logout } from '@starter-ws/reductor';
 import styles from './login-state.module.css';
 import { useEffect, useState } from 'react';
 import { useHttpClient } from '../../useHttpClient';
-import { Me } from '@flash-ws/api-interfaces';
+import { Me } from '@starter-ws/api-interfaces';
 import axios from 'axios';
 
 

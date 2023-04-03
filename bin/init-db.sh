@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DB=flash
+DB=starter
 
 dropdb $DB
 ./pg-create.sh $DB $DB $DB

@@ -1,5 +1,5 @@
-import { LoginRequest } from "@flash-ws/api-interfaces";
-import { inicializarSistema } from "@flash-ws/db";
+import { LoginRequest } from "@starter-ws/api-interfaces";
+import { inicializarSistema } from "@starter-ws/db";
 import request from "supertest";
 import { app } from "../../app";
 
@@ -27,15 +27,15 @@ describe("servicio me", () => {
 
     expect(response.body).toEqual({
       nombre: "Admin",
-      email: "admin@myapp.com",
-      empresa: "myapp",
+      email: "admin@starter.com",
+      empresa: "starter",
     });
   });
 });
 
 async function logear() {
   const credentials: LoginRequest = {
-    email: "admin@myapp.com",
+    email: "admin@starter.com",
     password: "123456",
   };
   const loginResult = await request(app)

@@ -1,5 +1,5 @@
-import { Me } from '@flash-ws/api-interfaces';
-import { Empresa, Usuario } from '@flash-ws/db';
+import { Me } from '@starter-ws/api-interfaces';
+import { Empresa, Usuario } from '@starter-ws/db';
 import express, { Request, Response } from 'express';
 
 export const me = express.Router();
