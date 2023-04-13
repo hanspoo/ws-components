@@ -4,6 +4,7 @@ import { Button, Checkbox, Form, Input, notification, Typography } from 'antd';
 import { LoginRequest } from '@starter-ws/api-interfaces';
 import { useDispatch } from 'react-redux';
 import { setLoggedIn } from '@starter-ws/reductor';
+import Fader from '../../fader/fader';
 
 
 const { Title } = Typography
@@ -11,19 +12,27 @@ const { Title } = Typography
 export const LoginForm: React.FC<{ recoverPassword: () => void, goSignup: () => void }> = ({ goSignup, recoverPassword }) => {
 
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setRealError] = useState("");
   const [api, contextHolder] = notification.useNotification();
   const contextValue = useMemo(() => ({ name: 'Ant Design' }), []);
 
   const dispatch = useDispatch();
 
+  function setError(message: string) {
+    setRealError(message);
+    setTimeout(() => setRealError(""), 3000)
+  }
 
   const onFinish = (values: any) => {
+    let i = 0;
+    console.log(i++);
 
     const { email, password } = values;
 
     setLoading(true);
     const data: LoginRequest = { email, password };
+    console.log(i++);
+
     fetch(`${process.env['NX_SERVER_URL']}/api/auth/login`, {
       headers: {
         "content-type": "application/json"
@@ -47,7 +56,7 @@ export const LoginForm: React.FC<{ recoverPassword: () => void, goSignup: () => 
           // setLoading(false)
           setError(data)
         } else {
-          let i = 0;
+
 
           console.log(i++);
 
@@ -66,6 +75,9 @@ export const LoginForm: React.FC<{ recoverPassword: () => void, goSignup: () => 
         setLoading(false)
 
       })
+    }).catch((error) => {
+      setError(error.message);
+      setLoading(false)
     })
   }
 
@@ -93,7 +105,7 @@ export const LoginForm: React.FC<{ recoverPassword: () => void, goSignup: () => 
       >
 
         <Title level={3} style={{ marginBottom: '1em' }}>Iniciar sesión</Title>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+
 
         <Form.Item
           label="Email"
@@ -121,6 +133,7 @@ export const LoginForm: React.FC<{ recoverPassword: () => void, goSignup: () => 
               Enviar
             </Button>
           </Form.Item>
+          {error && <Fader><p style={{ color: 'red' }}>{error}</p></Fader>}
           <Button type="link" onClick={goSignup} >Registrar gratis</Button>
           <Button type="link" onClick={recoverPassword} >Olvidé la contraseña</Button>
         </div>
@@ -129,4 +142,6 @@ export const LoginForm: React.FC<{ recoverPassword: () => void, goSignup: () => 
 
   );
 };
+
+
 
