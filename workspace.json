@@ -4,7 +4,7 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
-    "components": "libs/components",
+    "auth-components": "libs/auth-components",
     "components-e2e": "apps/components-e2e",
     "db": "libs/db",
     "front": "apps/front",

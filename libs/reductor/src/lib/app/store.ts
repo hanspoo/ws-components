@@ -1,4 +1,4 @@
-import counterReducer from "../features/counter/counterSlice";
+import counterReducer from "../features/auth/authSlice";
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
@@ -16,7 +16,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 
 const reducers = combineReducers({
-  counter: counterReducer,
+  auth: counterReducer,
 });
 
 const persistConfig = {

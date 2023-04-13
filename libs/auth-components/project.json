@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/components/src",
+  "sourceRoot": "libs/auth-components/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -11,17 +11,17 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "libs/components/**/*.{ts,tsx,js,jsx}"
+          "libs/auth-components/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "coverage/libs/components"
+        "coverage/libs/auth-components"
       ],
       "options": {
-        "jestConfig": "libs/components/jest.config.ts",
+        "jestConfig": "libs/auth-components/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -30,9 +30,9 @@
       "options": {
         "uiFramework": "@storybook/react",
         "port": 4400,
-        "proxyConfig": "libs/components/proxy.conf.json",
+        "proxyConfig": "libs/auth-components/proxy.conf.json",
         "config": {
-          "configFolder": "libs/components/.storybook"
+          "configFolder": "libs/auth-components/.storybook"
         }
       },
       "configurations": {
@@ -50,7 +50,7 @@
         "uiFramework": "@storybook/react",
         "outputPath": "dist/storybook/components",
         "config": {
-          "configFolder": "libs/components/.storybook"
+          "configFolder": "libs/auth-components/.storybook"
         }
       },
       "configurations": {

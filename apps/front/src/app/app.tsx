@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 import {
   LoginState,
   LoginSection,
-} from '@starter-ws/components';
+} from '@starter-ws/auth-components';
 import { useSelector } from 'react-redux';
 import { RootState } from '@starter-ws/reductor';
 
@@ -25,7 +25,7 @@ enum Modo {
 }
 
 const App = () => {
-  const loggedIn = useSelector((state: RootState) => state.counter.loggedIn);
+  const loggedIn = useSelector((state: RootState) => state.auth.loggedIn);
   const [modo, setModo] = useState(Modo.HOME);
   const [collapsed, setCollapsed] = useState(false);
 

@@ -31,8 +31,8 @@
       "@starter-ws/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
-      "@starter-ws/components": [
-        "libs/components/src/index.ts"
+      "@starter-ws/auth-components": [
+        "libs/auth-components/src/index.ts"
       ],
       "@starter-ws/dao": [
         "libs/dao/src/index.ts"

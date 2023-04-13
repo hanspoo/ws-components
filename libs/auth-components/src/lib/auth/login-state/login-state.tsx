@@ -20,7 +20,7 @@ export function LoginState(props: LoginStateProps) {
   const [me, setMe] = useState<Me>()
 
 
-  const token = useSelector((state: RootState) => state.counter.token)
+  const token = useSelector((state: RootState) => state.auth.token)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export function LoginState(props: LoginStateProps) {
     });
   }, [])
 
-  const loggedIn = useSelector((state: RootState) => state.counter.loggedIn)
+  const loggedIn = useSelector((state: RootState) => state.auth.loggedIn)
   if (!loggedIn)
     return <p>Desconectado</p>
 
