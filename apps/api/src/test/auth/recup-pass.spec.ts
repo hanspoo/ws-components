@@ -11,9 +11,11 @@ import { randomEmail, randomCseg } from "@starter-ws/shared";
 const sendMailMock = jest.fn();
 jest.mock("nodemailer");
 
+// @ts-ignore
 nodemailer.createTransport.mockReturnValue({ sendMail: sendMailMock });
 beforeEach(() => {
   sendMailMock.mockClear();
+  // @ts-ignore
   nodemailer.createTransport.mockClear();
 });
 
