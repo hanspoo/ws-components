@@ -1,10 +1,10 @@
-import bcrypt from 'bcrypt';
+import crypto from "crypto";
+
 export class PassService {
-  async hash(plain: string): Promise<string> {
-    return bcrypt.hash(plain, 10);
+  hash(plain: string): string {
+    return crypto.createHash("sha256").update(plain).digest("base64");
   }
-  async comparePassword(plain: string, hash: string) {
-    const result = await bcrypt.compare(plain, hash);
-    return result;
+  comparePassword(plain: string, hash: string) {
+    return this.hash(plain) === hash;
   }
 }
