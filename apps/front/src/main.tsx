@@ -1,4 +1,4 @@
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from '@starter-ws/reductor';
 import { StrictMode } from 'react';
 
@@ -7,8 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './app/app';
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-
+// import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

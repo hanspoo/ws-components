@@ -1,0 +1,161 @@
+{
+  "numero_solicitud": 6721143,
+  "estado_solicitud": "1",
+  "tipo_dcto": "",
+  "nro_dcto": "",
+  "tipo_solicitud": "6",
+  "cod_proceso": "",
+  "monto": 0.0,
+  "payload": {
+    "code": "002",
+    "data": {
+      "solicitud": {
+        "id": "86d1569a-f59d-46f6-913c-def8aa694054",
+        "numero": 6721143,
+        "tipo": 6,
+        "estado": 1,
+        "fecha_solicitud": "2023-05-18 16:22:11.985853611 +0000 UTC",
+        "fecha_actualizacion_estado": "2023-05-18 16:22:11.985853611 +0000 UTC",
+        "fecha_creacion_gestor": "2023-05-18 16:22:11.985853611 +0000 UTC",
+        "productos": [
+          { "id": "1bdd7181-0aa8-4b82-b04d-cb1b6ddbc1ac", "tipo": 1 },
+          { "id": "bc34b72f-ac55-4313-ba24-bf9acd08da54", "tipo": 1 },
+          { "id": "5acdc60c-8e5c-4284-bb3f-6d9f76aab258", "tipo": 1 },
+          { "id": "30cc8373-d4fb-4b4b-a13b-1b1f0a1d2651", "tipo": 1 },
+          { "id": "57d9a15a-3e64-4b6f-b842-164e5b3ce7d1", "tipo": 1 },
+          { "id": "2f30790a-1aca-42f0-a2bf-97afff045338", "tipo": 1 },
+          { "id": "5b33a49f-e73b-4f74-9891-1056de586c96", "tipo": 1 },
+          { "id": "bac338d3-347f-47d4-b46d-ed1c0cfea867", "tipo": 1 },
+          { "id": "697350b8-ff53-42b2-87f2-7099089d9928", "tipo": 1 },
+          { "id": "cc000d9f-1ed1-4ed6-97b7-869e101493fa", "tipo": 1 },
+          { "id": "0431933d-f323-4f4f-b419-c6ad22c46a21", "tipo": 1 },
+          { "id": "004fd33f-59d6-41f7-ba16-9f7a1358dcf2", "tipo": 1 },
+          { "id": "0034bc20-d9fe-400e-bfe9-e0df11a08c32", "tipo": 1 },
+          { "id": "2d65dade-12aa-4db1-8a92-e5725d2b763e", "tipo": 1 }
+        ],
+        "refinanciamientos": [
+          {
+            "id": "e802a519-215f-4000-9e69-811c2cd418f4",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "11ad319d-a663-4ff1-bc6c-45dcfce5f397",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "27cadfbb-59e7-4410-8751-a495f5f7acc1",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "9c9a7648-cd96-422f-847c-e545d2d5225f",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "eda9bd13-ba69-44bb-9ed7-5979165bcb32",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "0943b0f7-3103-458a-9d4d-d16b9259c5ae",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "6b2f2dac-70a2-4414-a3f3-9813efc99fa2",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "15ac45d6-88c5-4939-9819-43e0b6bbb5fe",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "0873ce18-87cf-4790-a063-2056f9d56fa9",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "b9053d41-df3d-4d6c-b87c-3be26b3fe27e",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "ce720e39-24a5-4157-b647-67719ffd2d4a",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          },
+          {
+            "id": "7af71532-e991-4eb4-b06e-52c495719827",
+            "tipo": 1,
+            "codent": "0015",
+            "centalta": "3177",
+            "cuenta": "108101608727",
+            "canal": "canal",
+            "porint": null,
+            "codtipc": null
+          }
+        ]
+      }
+    }
+  }
+}

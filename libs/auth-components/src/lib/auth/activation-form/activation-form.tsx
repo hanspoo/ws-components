@@ -27,7 +27,7 @@ export function ActivationForm({ bingo, cancel, email }: ActivationFormProps) {
 
     const body: ActivationRequest = { cseg, email }
 
-    const url = `${process.env["NX_SERVER_URL"]}/api/auth/activate`
+    const url = `${process.env.VITE_SERVER_URL}/api/auth/activate`
     axios.post<ActivationResponse>(url, body).then(response => {
       setLoading(false)
       if (response.data.success)

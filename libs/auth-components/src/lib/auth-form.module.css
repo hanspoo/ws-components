@@ -26,12 +26,12 @@
 }
 
 .login-form {
-  border: none;
-  /* width: 400px; */
+  /* border: none; */
+  width: 100%;
+  /* padding: 1em; */
   /* min-width: 400px; */
-  background-color: white;
+  /* background-color: white; */
   /* color: white; */
-  padding: 2em 3em;
 }
 
 .login-form-forgot {
@@ -45,15 +45,6 @@
 }
 
 @media screen and (min-width: 400px) {
-  /* .login-form {
-    width: 400px;
-    border: solid 1px #666;
-    background-color: #eee;
-  }
-  .container {
-    align-items: center;
-  } */
-
   .container {
     align-items: center;
     /* height: 9vh; */
@@ -62,18 +53,15 @@
     justify-content: center;
   }
   .login-form {
-    width: 400px;
-    align-self: center;
-    border: solid 1px #666;
-    background-color: white;
+    width: 350px;
   }
 }
 
 .header {
-  background-color: aqua;
+  background-color: #ccc;
   display: flex;
   align-items: center;
-  padding: 0;
+  padding-left: 1em;
   margin: 0;
   /* justify-content: center; */
 }

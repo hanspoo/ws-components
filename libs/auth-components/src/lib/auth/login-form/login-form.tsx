@@ -1,6 +1,14 @@
 import React, { useMemo, useState } from "react";
 import styles from "../../auth-form.module.css";
-import { Button, Checkbox, Form, Input, notification, Typography } from "antd";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Form,
+  Input,
+  notification,
+  Typography,
+} from "antd";
 import { LoginRequest } from "@starter-ws/api-interfaces";
 import { useDispatch } from "react-redux";
 import { setLoggedIn } from "@starter-ws/reductor";
@@ -89,7 +97,7 @@ export const LoginForm: React.FC<{
   };
 
   return (
-    <div className={styles["login-form"]}>
+    <Card title="Conexión al sistema" className={styles["login-form"]}>
       <Form
         layout="vertical"
         className={styles["ant-form"]}
@@ -99,10 +107,6 @@ export const LoginForm: React.FC<{
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Title level={3} style={{ marginBottom: "1em" }}>
-          Iniciar sesión
-        </Title>
-
         <Form.Item
           label="Email"
           name="email"
@@ -151,6 +155,6 @@ export const LoginForm: React.FC<{
           </Button>
         </div>
       </Form>
-    </div>
+    </Card>
   );
 };

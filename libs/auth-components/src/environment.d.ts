@@ -1,7 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NX_SERVER_URL: string;
+      VITE_SERVER_URL: string;
     }
   }
 }

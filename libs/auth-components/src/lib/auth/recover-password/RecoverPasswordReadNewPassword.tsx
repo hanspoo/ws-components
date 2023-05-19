@@ -26,7 +26,7 @@ export function RecoverPasswordReadNewPassword({ email, token, cancel, next }: R
         setLoading(true);
         const data: ExecuteChangePassRequest = { email, token, password };
 
-        axios.post(`${process.env['NX_SERVER_URL']}/api/auth/change-pass`, data
+        axios.post(`${process.env.VITE_SERVER_URL}/api/auth/change-pass`, data
 
         ).then(() => {
             next();

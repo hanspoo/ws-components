@@ -47,7 +47,7 @@ export const SignupForm: React.FC<{ cancel: () => void, goActivation: (email: st
       identLegal,
     };
     axios
-      .post(`${process.env['NX_SERVER_URL']}/api/auth/signup`, data)
+      .post(`${process.env.VITE_SERVER_URL}/api/auth/signup`, data)
       .then((response) => {
         console.log(response.data);
         goActivation(email)

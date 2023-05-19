@@ -1,66 +1,36 @@
 {
+  "name": "front",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/front/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/webpack:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "compiler": "babel",
-        "outputPath": "dist/apps/front",
-        "index": "apps/front/src/index.html",
-        "baseHref": "/",
-        "main": "apps/front/src/main.tsx",
-        "polyfills": "apps/front/src/polyfills.ts",
-        "tsConfig": "apps/front/tsconfig.app.json",
-        "assets": [
-          "apps/front/src/favicon.ico",
-          "apps/front/src/assets"
-        ],
-        "styles": [
-          "apps/front/src/styles.css"
-        ],
-        "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "outputPath": "dist/apps/front"
       },
       "configurations": {
         "development": {
-          "extractLicenses": false,
-          "optimization": false,
-          "sourceMap": true,
-          "vendorChunk": true
+          "mode": "development"
         },
         "production": {
-          "fileReplacements": [
-            {
-              "replace": "apps/front/src/environments/environment.ts",
-              "with": "apps/front/src/environments/environment.prod.ts"
-            }
-          ],
-          "optimization": true,
-          "outputHashing": "all",
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": false
+          "mode": "production"
         }
       }
     },
     "serve": {
-      "executor": "@nrwl/webpack:dev-server",
+      "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "front:build",
-        "hmr": true,
-        "proxyConfig": "apps/front/proxy.conf.json"
+        "proxyConfig": "apps/front/proxy.conf.json",
+        "buildTarget": "front:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "front:build:development"
+          "buildTarget": "front:build:development",
+          "hmr": true
         },
         "production": {
           "buildTarget": "front:build:production",
@@ -68,25 +38,41 @@
         }
       }
     },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
       "options": {
-        "lintFilePatterns": [
-          "apps/front/**/*.{ts,tsx,js,jsx}"
-        ]
+        "proxyConfig": "apps/front/proxy.conf.json",
+        "buildTarget": "front:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "front:build:development"
+        },
+        "production": {
+          "buildTarget": "front:build:production"
+        }
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/front"
-      ],
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/apps/front"],
       "options": {
-        "jestConfig": "apps/front/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/front"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/front/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "front:build"
       }
     }
   },

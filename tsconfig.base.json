@@ -1,8 +1,5 @@
 {
   "compileOnSave": false,
-  "include": [
-    "./types.d.ts"
-  ],
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
@@ -11,48 +8,20 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "strictPropertyInitialization": false,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "esModuleInterop": true,
     "baseUrl": ".",
-    "typeRoots": [
-      "types",
-      "node_modules/@types"
-    ],
     "paths": {
-      "@starter-ws/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
-      ],
-      "@starter-ws/auth-components": [
-        "libs/auth-components/src/index.ts"
-      ],
-      "@starter-ws/dao": [
-        "libs/dao/src/index.ts"
-      ],
-      "@starter-ws/db": [
-        "libs/db/src/index.ts"
-      ],
-      "@starter-ws/mail-utils": [
-        "libs/mail-utils/src/index.ts"
-      ],
-      "@starter-ws/reductor": [
-        "libs/reductor/src/index.ts"
-      ],
-      "@starter-ws/shared": [
-        "libs/shared/src/index.ts"
-      ]
+      "@starter-ws/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@starter-ws/auth-components": ["libs/auth-components/src/index.ts"],
+      "@starter-ws/db": ["libs/db/src/index.ts"],
+      "@starter-ws/mail-utils": ["libs/mail-utils/src/index.ts"],
+      "@starter-ws/reductor": ["libs/reductor/src/index.ts"],
+      "@starter-ws/shared": ["libs/shared/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

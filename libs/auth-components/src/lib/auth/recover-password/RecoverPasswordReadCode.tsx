@@ -25,7 +25,7 @@ export function RecoverPasswordReadCode({ email, cancel, next }: RecoverPassword
         setLoading(true);
         const data: RequestValidaCodSeguridad = { email, cseg };
 
-        axios.post(`${process.env['NX_SERVER_URL']}/api/auth/valida-cod-seguridad`, data
+        axios.post(`${process.env.VITE_SERVER_URL}/api/auth/valida-cod-seguridad`, data
 
         ).then((response) => {
             const { token } = response.data;

@@ -25,7 +25,7 @@ export function RecoverPasswordReadMail({ cancel, next }: RecoverComponentsArgs)
         setLoading(true);
         const data: RecoverPasswordRequest = { email };
 
-        axios.post(`${process.env['NX_SERVER_URL']}/api/auth/recover-pass`, data
+        axios.post(`${process.env.VITE_SERVER_URL}/api/auth/recover-pass`, data
 
         ).then(() => {
             next(email);

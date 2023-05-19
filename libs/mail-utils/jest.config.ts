@@ -1,16 +1,10 @@
 /* eslint-disable */
 export default {
-  displayName: "mail-utils",
-  preset: "../../jest.preset.js",
-  globals: {
-    "ts-jest": {
-      tsconfig: "<rootDir>/tsconfig.spec.json",
-    },
-  },
-  testEnvironment: "node",
+  displayName: 'mail-utils',
+  preset: '../../jest.preset.js',
   transform: {
-    "^.+\\.[tj]s$": "ts-jest",
+    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
-  moduleFileExtensions: ["ts", "js", "html"],
-  coverageDirectory: "../../coverage/libs/mail-utils",
+  moduleFileExtensions: ['ts', 'js', 'html'],
+  coverageDirectory: '../../coverage/libs/mail-utils',
 };

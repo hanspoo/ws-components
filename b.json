@@ -1,0 +1,29 @@
+{
+  "numero_solicitud": 6721148,
+  "estado_solicitud": "1",
+  "tipo_dcto": "1",
+  "nro_dcto": "192963397",
+  "tipo_solicitud": "3",
+  "cod_proceso": "",
+  "monto": 0.0,
+  "payload": {
+    "code": "002",
+    "data": {
+      "solicitud": {
+        "id": "c253df2f-0dc3-4ab6-9d34-2767afa4d510",
+        "numero": 6721148,
+        "tipo": 3,
+        "estado": 1,
+        "fecha_solicitud": "2023-05-18 16:22:21.351355246 +0000 UTC",
+        "fecha_actualizacion_estado": "2023-05-18 16:22:21.351355246 +0000 UTC",
+        "fecha_creacion_gestor": "2023-05-18 16:22:21.351355246 +0000 UTC",
+        "datos_identificacion": {
+          "tipo": 1,
+          "numero": "192963397",
+          "numero_serie": "N/I",
+          "bloqueo": 1
+        }
+      }
+    }
+  }
+}

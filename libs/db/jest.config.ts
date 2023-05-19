@@ -1,16 +1,10 @@
 /* eslint-disable */
 export default {
-  displayName: "core",
-  preset: "../../jest.preset.js",
-  globals: {
-    "ts-jest": {
-      tsconfig: "<rootDir>/tsconfig.spec.json",
-    },
-  },
-  setupFilesAfterEnv: ["<rootDir>/jest.env.js"],
+  displayName: 'db',
+  preset: '../../jest.preset.js',
   transform: {
-    "^.+\\.[tj]s$": "ts-jest",
+    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }],
   },
-  moduleFileExtensions: ["ts", "js", "html"],
-  coverageDirectory: "../../coverage/libs/db",
+  moduleFileExtensions: ['ts', 'js', 'html'],
+  coverageDirectory: '../../coverage/libs/db',
 };

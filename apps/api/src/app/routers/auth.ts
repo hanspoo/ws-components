@@ -5,7 +5,7 @@ import {
   SignupRequest,
   RequestValidaCodSeguridad,
   ExecuteChangePassRequest,
-} from "@starter-ws/api-interfaces";
+} from '@starter-ws/api-interfaces';
 import {
   CrearUsuarioService,
   ExecuteChangePassService,
@@ -15,9 +15,9 @@ import {
   RecoverPasswordService,
   SignupService,
   ValidarSolicitudAutenticarEmail,
-} from "@starter-ws/db";
-import * as express from "express";
-import { Request, Response } from "express";
+} from '@starter-ws/db';
+import * as express from 'express';
+import { Request, Response } from 'express';
 
 const auth = express.Router();
 
@@ -30,9 +30,9 @@ type ReqWithSession = Request<unknown, unknown, LoginRequest> & {
   };
 };
 
-auth.post("/login", async function (req: ReqWithSession, res: Response) {
+auth.post('/login', async function (req: ReqWithSession, res: Response) {
   if (!req.body.email || !req.body.password) {
-    return res.send("please give username and password");
+    return res.send('please give username and password');
   }
 
   const { email, password } = req.body;
@@ -45,16 +45,20 @@ auth.post("/login", async function (req: ReqWithSession, res: Response) {
   const [loginOk, payload] = await new LoginService().login(email, password);
 
   if (loginOk) {
-    req.session.user = req.body.email;
-    req.session.admin = true;
-    req.session.token = payload;
-    return res.header("x-token", payload).send("login Ok");
+    req.session = {
+      user: req.body.email,
+      admin: true,
+      token: payload,
+      destroy: () => console.log('destroy'),
+    };
+
+    return res.header('x-token', payload).send('login Ok');
   }
 
-  res.send("Credenciales inválidas");
+  res.send('Credenciales inválidas');
 });
 auth.post(
-  "/signup",
+  '/signup',
   async function (req: Request<null, null, SignupRequest>, res: Response) {
     const service = new SignupService(req.body);
     const [isOk, errors] = await service.validate();
@@ -70,7 +74,7 @@ auth.post(
 );
 
 auth.post(
-  "/activate",
+  '/activate',
   async function (
     req: Request<null, ActivationResponse, ActivationRequest>,
     res: Response
@@ -78,7 +82,7 @@ auth.post(
     const finder = new FinderSolicitudesRegistro();
     const { cseg, email } = req.body;
 
-    const response = await finder.execute(email, parseInt(cseg + ""));
+    const response = await finder.execute(email, parseInt(cseg + ''));
     if (!response.success) return res.send(response);
 
     const scu = new CrearUsuarioService();
@@ -86,14 +90,14 @@ auth.post(
     if (e) return res.send(response);
     else {
       const errorResponse: ActivationResponse = {
-        msg: "Error al crear la cuenta",
+        msg: 'Error al crear la cuenta',
       };
       res.status(400).send(errorResponse);
     }
   }
 );
 auth.post(
-  "/recover-pass",
+  '/recover-pass',
   async function (req: Request<null, null, { email: string }>, res: Response) {
     const { email } = req.body;
 
@@ -107,15 +111,15 @@ auth.post(
 );
 
 auth.post(
-  "/valida-cod-seguridad",
+  '/valida-cod-seguridad',
   async (
     req: Request<null, null, RequestValidaCodSeguridad>,
     res: Response
   ) => {
     const { email, cseg } = req.body;
     if (!(email && cseg)) {
-      console.log("Requerimiento sin email ni código de securidad");
-      return res.status(400).send("Debe entregar el email y contraseña");
+      console.log('Requerimiento sin email ni código de securidad');
+      return res.status(400).send('Debe entregar el email y contraseña');
     }
 
     const service = new ValidarSolicitudAutenticarEmail();
@@ -134,12 +138,12 @@ auth.post(
 );
 
 auth.post(
-  "/change-pass",
+  '/change-pass',
   async (req: Request<null, null, ExecuteChangePassRequest>, res: Response) => {
     const { email, token, password } = req.body;
     if (!(email && token && password)) {
-      console.log("Requerimiento sin email ni código de securidad");
-      return res.status(400).send("Faltan parámetros");
+      console.log('Requerimiento sin email ni código de securidad');
+      return res.status(400).send('Faltan parámetros');
     }
 
     const service = new ExecuteChangePassService();
@@ -154,12 +158,12 @@ auth.post(
   }
 );
 
-auth.get("/logout", function (req: ReqWithSession, res) {
+auth.get('/logout', function (req: ReqWithSession, res) {
   req.session.destroy();
-  res.send("logout success!");
+  res.send('logout success!');
 });
 
-auth.get("/content", auth, function (req, res) {
+auth.get('/content', auth, function (req, res) {
   res.send("You can only see this after you've logged in.");
 });
 

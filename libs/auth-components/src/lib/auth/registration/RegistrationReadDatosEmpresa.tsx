@@ -26,7 +26,7 @@ export function RegistrationReadDatosEmpresa({ email, token, cancel, next }: Rec
         setLoading(true);
         const data: ExecuteChangePassRequest = { email, token, password };
 
-        axios.post(`${process.env['NX_SERVER_URL']}/api/registration/company-data`, data
+        axios.post(`${process.env.VITE_SERVER_URL}/api/registration/company-data`, data
 
         ).then(() => {
             next();

@@ -694,8 +694,8 @@ export function NxWelcome({ title }: { title: string }) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {' '}
-                  What is Nx Cloud?{' '}
+                  {" "}
+                  What is Nx Cloud?{" "}
                 </a>
               </div>
               <a
@@ -743,9 +743,9 @@ export function NxWelcome({ title }: { title: string }) {
               </summary>
               <pre>
                 <span># Generate UI lib</span>
-                nx g @nrwl/react:lib ui
+                nx g @nx/react:lib ui
                 <span># Add a component</span>
-                nx g @nrwl/react:component button --project ui
+                nx g @nx/react:component button --project ui
               </pre>
             </details>
             <details>
