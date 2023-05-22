@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@starter-ws/auth/api": ["libs/auth/api/src/index.ts"],
-      "@starter-ws/auth/components": ["libs/auth/components/src/index.ts"],
+      "@starter-ws/auth/ui": ["libs/auth/ui/src/index.ts"],
       "@starter-ws/db": ["libs/db/src/index.ts"],
       "@starter-ws/mail-utils": ["libs/mail-utils/src/index.ts"],
       "@starter-ws/reductor": ["libs/reductor/src/index.ts"],

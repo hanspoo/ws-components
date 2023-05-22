@@ -7,7 +7,7 @@ import {
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 
-import { LoginState, LoginSection } from '@starter-ws/auth/components';
+import { LoginState, LoginSection } from '@starter-ws/auth/ui';
 import { useSelector } from 'react-redux';
 import { RootState } from '@starter-ws/reductor';
 
