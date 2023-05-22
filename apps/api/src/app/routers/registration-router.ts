@@ -1,7 +1,4 @@
-import {
-  SignupRequest,
-  RequestValidaCodSeguridad,
-} from "@starter-ws/api-interfaces";
+import { SignupRequest, RequestValidaCodSeguridad } from '@starter-ws/auth/api';
 import {
   CrearUsuarioService,
   dataSource,
@@ -10,10 +7,10 @@ import {
   RegistrationEmailStageService,
   SolicitudRegistro,
   ValidarSolicitudAutenticarEmail,
-} from "@starter-ws/db";
-import { randomInt } from "crypto";
-import * as express from "express";
-import { Request, Response } from "express";
+} from '@starter-ws/db';
+import { randomInt } from 'crypto';
+import * as express from 'express';
+import { Request, Response } from 'express';
 
 const registration = express.Router();
 
@@ -24,7 +21,7 @@ const registration = express.Router();
  */
 
 registration.post(
-  "/create-company",
+  '/create-company',
   async function (req: Request<null, null, SignupRequest>, res: Response) {
     const { email, token, empresa, nombre, password, identLegal } = req.body;
 
@@ -39,7 +36,7 @@ registration.post(
     });
 
     if (!permiso) {
-      res.statusMessage = "Permiso expirado";
+      res.statusMessage = 'Permiso expirado';
       res.send(400);
     }
 
@@ -66,7 +63,7 @@ registration.post(
   }
 );
 registration.post(
-  "/validate-email",
+  '/validate-email',
   async function (req: Request<null, null, { email: string }>, res: Response) {
     const { email } = req.body;
 
@@ -80,15 +77,15 @@ registration.post(
 );
 
 registration.post(
-  "/valida-cod-seguridad",
+  '/valida-cod-seguridad',
   async (
     req: Request<null, null, RequestValidaCodSeguridad>,
     res: Response
   ) => {
     const { email, cseg } = req.body;
     if (!(email && cseg)) {
-      console.log("Requerimiento sin email ni código de securidad");
-      return res.status(400).send("Debe entregar el email y contraseña");
+      console.log('Requerimiento sin email ni código de securidad');
+      return res.status(400).send('Debe entregar el email y contraseña');
     }
 
     const service = new ValidarSolicitudAutenticarEmail();

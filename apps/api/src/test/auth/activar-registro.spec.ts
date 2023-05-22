@@ -1,7 +1,4 @@
-import {
-  ActivationRequest,
-  ActivationResponse,
-} from '@starter-ws/api-interfaces';
+import { ActivationRequest, ActivationResponse } from '@starter-ws/auth/api';
 import { inicializarSistema } from '@starter-ws/db';
 import request from 'supertest';
 import { app } from '../../app';

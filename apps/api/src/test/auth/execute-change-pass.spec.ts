@@ -1,15 +1,15 @@
 // import nodemailer from "nodemailer";
-import { ExecuteChangePassRequest } from "@starter-ws/api-interfaces";
+import { ExecuteChangePassRequest } from '@starter-ws/auth/api';
 import {
   dataSource,
   inicializarSistema,
   MotivoPermiso,
   PermisoUsarEmail,
-} from "@starter-ws/db";
-import { randomEmail } from "@starter-ws/shared";
-import { randomBytes } from "crypto";
-import request from "supertest";
-import { app } from "../../app";
+} from '@starter-ws/db';
+import { randomEmail } from '@starter-ws/shared';
+import { randomBytes } from 'crypto';
+import request from 'supertest';
+import { app } from '../../app';
 
 // const sendMailMock = jest.fn();
 // jest.mock("nodemailer");
@@ -24,26 +24,26 @@ beforeAll(async () => {
   await inicializarSistema();
 });
 
-describe("cambia la password", () => {
-  it("existe la url", async () => {
-    const email = "",
-      token = "",
-      password = "";
+describe('cambia la password', () => {
+  it('existe la url', async () => {
+    const email = '',
+      token = '',
+      password = '';
     const data: ExecuteChangePassRequest = { email, token, password };
     const response = await request(app)
-      .post("/api/auth/change-pass")
+      .post('/api/auth/change-pass')
       .send(data);
     expect(response.status).toBe(400);
   });
-  it("cambia la pass con datos válidos", async () => {
-    const email = "admin@starter.com";
-    const password = randomBytes(5).toString("hex");
+  it('cambia la pass con datos válidos', async () => {
+    const email = 'admin@starter.com';
+    const password = randomBytes(5).toString('hex');
 
     const [, token] = await crearPermisoFake(email);
     const data: ExecuteChangePassRequest = { email, token, password };
 
     const response = await request(app)
-      .post("/api/auth/change-pass")
+      .post('/api/auth/change-pass')
       .send(data);
     expect(response.status).toBe(200);
   });
@@ -52,7 +52,7 @@ describe("cambia la password", () => {
 export async function crearPermisoFake(
   email?: string
 ): Promise<[string, string]> {
-  const token = randomBytes(6).toString("hex");
+  const token = randomBytes(6).toString('hex');
   email = email || randomEmail();
   const repo = dataSource.getRepository(PermisoUsarEmail);
   await repo.save(

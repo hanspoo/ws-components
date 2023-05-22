@@ -7,28 +7,21 @@ import {
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 
-import {
-  LoginState,
-  LoginSection,
-} from '@starter-ws/auth-components';
+import { LoginState, LoginSection } from '@starter-ws/auth/components';
 import { useSelector } from 'react-redux';
 import { RootState } from '@starter-ws/reductor';
-
 
 const { Header, Sider, Content } = Layout;
 
 enum Modo {
-
   HOME = 'HOME',
   ABOUT = 'ABOUT',
-
 }
 
 const App = () => {
   const loggedIn = useSelector((state: RootState) => state.auth.loggedIn);
   const [modo, setModo] = useState(Modo.HOME);
   const [collapsed, setCollapsed] = useState(false);
-
 
   if (!loggedIn) return <LoginSection />;
 
@@ -85,7 +78,6 @@ const App = () => {
         >
           {modo === Modo.HOME && <Home />}
           {modo === Modo.ABOUT && <About />}
-
         </Content>
       </Layout>
     </Layout>

@@ -1,4 +1,4 @@
-import { Me } from '@starter-ws/api-interfaces';
+import { Me } from '@starter-ws/auth/api';
 import { Empresa, Usuario } from '@starter-ws/db';
 import express, { Request, Response } from 'express';
 

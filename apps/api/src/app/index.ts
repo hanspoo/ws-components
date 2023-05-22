@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-import { Message } from '@starter-ws/api-interfaces';
+import { Message } from '@starter-ws/auth/api';
 import { auth } from './routers/auth';
 import { me } from './routers/me';
 import { archivos } from './routers/archivos';

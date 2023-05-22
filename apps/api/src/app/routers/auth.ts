@@ -5,7 +5,7 @@ import {
   SignupRequest,
   RequestValidaCodSeguridad,
   ExecuteChangePassRequest,
-} from '@starter-ws/api-interfaces';
+} from '@starter-ws/auth/api';
 import {
   CrearUsuarioService,
   ExecuteChangePassService,
