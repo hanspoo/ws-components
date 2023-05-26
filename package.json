@@ -23,6 +23,7 @@
     "react-router-dom": "^6.11.1",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
+    "sqlite3": "^5.1.6",
     "supertest": "^6.3.3",
     "tslib": "^2.3.0",
     "typeorm": "^0.3.16",
