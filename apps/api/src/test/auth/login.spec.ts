@@ -25,8 +25,6 @@ describe('login', () => {
   it('responde token en login correcto', async () => {
     const res = await request(app).post('/api/auth/login').send(credentials);
     expect(res.statusCode).toEqual(200);
-    console.log(res.headers['x-token']);
-
     expect(res.headers['x-token']).toBeTruthy();
   });
   it('puede acceder a home page: ordenes con el token', async () => {

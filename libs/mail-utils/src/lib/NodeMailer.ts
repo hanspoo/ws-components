@@ -3,10 +3,6 @@ import { Mailer, SendMailArgs } from './Mailer';
 
 export class NodeMailer implements Mailer {
   send(args: SendMailArgs) {
-    console.log({
-      user: process.env.VITE_SMTP_USER,
-      pass: process.env.VITE_SMTP_PASS,
-    });
     const transporter = nodemailer.createTransport({
       host: process.env.VITE_SMTP_SERVER || 'smtp.gmail.com',
       port: process.env.VITE_SMTP_PORT || 587,

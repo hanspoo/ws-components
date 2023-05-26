@@ -28,11 +28,11 @@ app.use(
   })
 );
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(req.url);
+// app.use((req: Request, res: Response, next: NextFunction) => {
+//   console.log(req.url);
 
-  next();
-});
+//   next();
+// });
 app.use(express.json());
 app.use(express.static('../starter'));
 const authMiddleware = async function (
