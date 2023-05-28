@@ -1,8 +1,8 @@
-import crypto from "crypto";
+import * as crypto from 'crypto';
 
 export class PassService {
   hash(plain: string): string {
-    return crypto.createHash("sha256").update(plain).digest("base64");
+    return crypto.createHash('sha256').update(plain).digest('base64');
   }
   comparePassword(plain: string, hash: string) {
     return this.hash(plain) === hash;

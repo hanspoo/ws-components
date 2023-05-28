@@ -12,8 +12,8 @@ import { Token } from './token.entity';
 @Entity()
 @Unique('email-unico', ['email']) //
 export class Usuario {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   nombre: string;

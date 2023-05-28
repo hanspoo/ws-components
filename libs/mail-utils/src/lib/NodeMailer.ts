@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 import { Mailer, SendMailArgs } from './Mailer';
 
 export class NodeMailer implements Mailer {

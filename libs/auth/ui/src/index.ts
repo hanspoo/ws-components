@@ -1,3 +1,6 @@
+export * from './lib/users-container/users-container';
+export * from './lib/user-detail/user-detail';
+export * from './lib/users-list/users-list';
 export * from './lib/signup/signup-coordinator/signup-coordinator';
 export * from './lib/customAxios';
 export * from './lib/login-section/login-section';

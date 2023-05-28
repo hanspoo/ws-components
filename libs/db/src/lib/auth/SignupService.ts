@@ -1,9 +1,9 @@
-import nodemailer from "nodemailer";
-import { randomInt } from "node:crypto";
-import { dataSource } from "../data-source";
-import { SolicitudRegistro } from "../entity/auth/solicitud-registro.entity";
-import { genCodSeguridad } from "@starter-ws/shared";
-import { mailer } from "@starter-ws/mail-utils";
+import * as nodemailer from 'nodemailer';
+import { randomInt } from 'node:crypto';
+import { dataSource } from '../data-source';
+import { SolicitudRegistro } from '../entity/auth/solicitud-registro.entity';
+import { genCodSeguridad } from '@starter-ws/shared';
+import { mailer } from '@starter-ws/mail-utils';
 
 export type SignupArgs = {
   identLegal: string;
@@ -47,7 +47,7 @@ export class SignupService {
     const response = transporter.sendMail({
       from: '"Hans Poo" <hanscpoo@welinux.cl>', // sender address
       to: this.email,
-      subject: "Registro en starter",
+      subject: 'Registro en starter',
       text: `
         Hola,
 
@@ -79,11 +79,11 @@ export class SignupService {
 
   async validate(): Promise<[boolean, Array<string>]> {
     const errors: Array<string> = [];
-    if (!/\w+/.test(this.empresa)) errors.push("Empresa inválida");
-    if (!/\w+/.test(this.identLegal)) errors.push("Ident legal inválido");
-    if (!/\w+/.test(this.nombre)) errors.push("Nombre inválido");
-    if (!/\w+/.test(this.email)) errors.push("Email inválido");
-    if (!/\w+/.test(this.password)) errors.push("Contraseña inválida");
+    if (!/\w+/.test(this.empresa)) errors.push('Empresa inválida');
+    if (!/\w+/.test(this.identLegal)) errors.push('Ident legal inválido');
+    if (!/\w+/.test(this.nombre)) errors.push('Nombre inválido');
+    if (!/\w+/.test(this.email)) errors.push('Email inválido');
+    if (!/\w+/.test(this.password)) errors.push('Contraseña inválida');
     if (errors.length > 0) return [false, errors];
 
     return [true, []];

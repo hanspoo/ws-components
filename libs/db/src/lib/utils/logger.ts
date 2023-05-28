@@ -1,14 +1,14 @@
-import winston from "winston";
+import * as winston from 'winston';
 
 const logConfiguration = {
   transports: [
     new winston.transports.Console({
-      level: process.env["DEBUG"] || "warn",
+      level: process.env['DEBUG'] || 'warn',
     }),
     new winston.transports.File({
-      level: "error",
+      level: 'error',
       // Create the log directory if it does not exist
-      filename: "logs/errors.log",
+      filename: 'logs/errors.log',
     }),
   ],
 };

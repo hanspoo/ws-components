@@ -1,21 +1,23 @@
 import {
+  HomeOutlined,
+  InfoCircleOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 
-import { LoginState, LoginSection } from '@starter-ws/auth/ui';
+import { LoginState, LoginSection, UsersContainer } from '@starter-ws/auth/ui';
 import { useSelector } from 'react-redux';
 import { RootState } from '@starter-ws/reductor';
 
 const { Header, Sider, Content } = Layout;
 
 enum Modo {
-  HOME = 'HOME',
-  ABOUT = 'ABOUT',
+  HOME = 'Home',
+  USERS = 'Usuarios',
+  ABOUT = 'Acerca de',
 }
 
 const App = () => {
@@ -43,13 +45,18 @@ const App = () => {
           items={[
             {
               key: Modo.HOME,
-              icon: <UserOutlined />,
+              icon: <HomeOutlined />,
               label: 'Home',
             },
             {
+              key: Modo.USERS,
+              icon: <UserOutlined />,
+              label: 'Usuarios',
+            },
+            {
               key: Modo.ABOUT,
-              icon: <UploadOutlined />,
-              label: 'About',
+              icon: <InfoCircleOutlined />,
+              label: 'Acerca de',
             },
           ]}
         />
@@ -78,6 +85,7 @@ const App = () => {
         >
           {modo === Modo.HOME && <Home />}
           {modo === Modo.ABOUT && <About />}
+          {modo === Modo.USERS && <UsersContainer />}
         </Content>
       </Layout>
     </Layout>
@@ -90,5 +98,5 @@ function Home() {
   return <div>Home</div>;
 }
 function About() {
-  return <div>About</div>;
+  return <div>Acá va la descripción de tu proyecto.</div>;
 }

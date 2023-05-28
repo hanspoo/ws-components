@@ -1,10 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert } from 'typeorm';
 
 @Entity()
 export class SolicitudAutenticarEmail {
   static vigenciaMinutos(): number {
     if (process.env.VIGENCIA_PERMISOS)
-      return parseInt(process.env.VIGENCIA_PERMISOS + "");
+      return parseInt(process.env.VIGENCIA_PERMISOS + '');
     return 5;
   }
   @PrimaryGeneratedColumn()
@@ -19,7 +19,7 @@ export class SolicitudAutenticarEmail {
   @Column()
   vigente: boolean;
 
-  @Column({ type: "bigint" })
+  @Column({ type: 'bigint' })
   created_at: number;
 
   @BeforeInsert()

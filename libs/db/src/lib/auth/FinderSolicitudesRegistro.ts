@@ -20,9 +20,6 @@ export class FinderSolicitudesRegistro {
         success: false,
       };
     } else {
-      console.log('solics', solics);
-      console.log('cseg', cseg);
-
       const solicitud = solics.find((s) => s.cseg === cseg);
       if (solicitud) {
         res = {

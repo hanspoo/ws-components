@@ -6,6 +6,7 @@ import { me } from './routers/me';
 import { archivos } from './routers/archivos';
 import { TokenService } from '@starter-ws/db';
 import { registration } from './routers/registration-router';
+import { usuarios } from './routers/usuarios';
 
 type ReqWithSession = Request<
   unknown,
@@ -66,6 +67,7 @@ app.get('/api', (req, res) => {
 });
 
 app.use('/api/archivos', archivos);
+app.use('/api/usuarios', authMiddleware, usuarios);
 app.use('/api/auth', auth);
 app.use('/api/registration', registration);
 app.use('/api/me', authMiddleware, me);

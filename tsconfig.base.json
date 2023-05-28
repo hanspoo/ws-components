@@ -8,7 +8,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
     "target": "es2015",
     "module": "esnext",
     "lib": ["es2020", "dom"],
@@ -21,7 +21,8 @@
       "@starter-ws/db": ["libs/db/src/index.ts"],
       "@starter-ws/mail-utils": ["libs/mail-utils/src/index.ts"],
       "@starter-ws/reductor": ["libs/reductor/src/index.ts"],
-      "@starter-ws/shared": ["libs/shared/src/index.ts"]
+      "@starter-ws/shared": ["libs/shared/src/index.ts"],
+      "@starter-ws/types-utils": ["libs/types-utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

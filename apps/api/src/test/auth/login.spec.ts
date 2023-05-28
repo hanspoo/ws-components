@@ -2,6 +2,7 @@ import { LoginRequest } from '@starter-ws/auth/api';
 import { dataSource, Empresa, inicializarSistema } from '@starter-ws/db';
 import request = require('supertest');
 import { app } from '../../app';
+import { IsNull, Not } from 'typeorm';
 
 beforeAll(async () => {
   await inicializarSistema();
@@ -11,7 +12,7 @@ beforeAll(async () => {
 
   const empresa = await dataSource
     .getRepository(Empresa)
-    .findOne({ where: { id: 1 } });
+    .findOne({ where: { id: Not(IsNull()) } });
 
   // empresa.usuarios = [u];
   await dataSource.getRepository(Empresa).save(empresa);

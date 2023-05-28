@@ -1,0 +1,19 @@
+{
+  "generators": {
+    "add-global": {
+      "factory": "./src/generators/add-global/generator",
+      "schema": "./src/generators/add-global/schema.json",
+      "description": "add-global generator"
+    },
+    "antd-table": {
+      "factory": "./src/generators/antd-table/generator",
+      "schema": "./src/generators/antd-table/schema.json",
+      "description": "antd-table generator"
+    },
+    "antd-detail": {
+      "factory": "./src/generators/antd-detail/generator",
+      "schema": "./src/generators/antd-detail/schema.json",
+      "description": "antd-detail generator"
+    }
+  }
+}
