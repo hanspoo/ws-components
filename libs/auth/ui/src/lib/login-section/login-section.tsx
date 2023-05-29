@@ -8,9 +8,10 @@ import ActivationForm from '../auth/activation-form/activation-form';
 import { LoginForm } from '../auth/login-form/login-form';
 import { RecoverPassword } from '../auth/recover-password/recover-password';
 import { SignupCoordinator } from '../signup/signup-coordinator/signup-coordinator';
+import PublicDecorator from '../public-decorator/public-decorator';
 
 /* eslint-disable-next-line */
-export interface LoginSectionProps {}
+export interface LoginSectionProps { }
 
 const { Title } = Typography;
 enum View {
@@ -21,21 +22,10 @@ enum View {
   RECOVER_PASSWORD,
 }
 export function LoginSection(props: LoginSectionProps) {
-  return (
-    <Layout className={styles['layout']}>
-      <Header className={styles['header']}>
-        <Typography.Title level={2} className={styles['title']}>
-          <FileTextOutlined /> starter
-        </Typography.Title>
-      </Header>
-      <Content>
-        <div className={styles['container']}>
-          <DoLoginSection {...props} />
-        </div>
-      </Content>
-      <Footer>starter, desarrollado por MyCompany</Footer>
-    </Layout>
-  );
+  return <PublicDecorator>
+    <DoLoginSection {...props} />
+  </PublicDecorator>
+
 }
 export function DoLoginSection(props: LoginSectionProps) {
   const [email, setEmail] = useState('');

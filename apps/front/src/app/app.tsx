@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
+import "../styles.css"
 
 import { LoginState, LoginSection, UsersContainer } from '@starter-ws/auth/ui';
 import { useSelector } from 'react-redux';

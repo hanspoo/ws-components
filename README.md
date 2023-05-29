@@ -1,8 +1,7 @@
 # b2b-starter
 
 Prototipo operativo de proyecto multi empresas con bases de datos, ideal para un b2b. Moderno stack tecnológico.
-
-Por simplicidad no hemos usado frameworks más elaborados como nextjs ni nestjs, sólo React y Express. Si inventamos la rueda de nuevo, a lo mejor encontramos una mejor !!
+Por simplicidad no hemos usado frameworks más elaborados como nextjs ni nestjs, sólo React y Express.
 
 ## Stack
 

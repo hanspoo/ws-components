@@ -29,7 +29,6 @@
 
 #__next,
 section.ant-layout:nth-child(1) {
-  height: 100vh;
 }
 
 .fadeOut {
@@ -83,7 +82,3 @@ table tbody tr > td:nth-child(3) {
 /* table.lineas tbody tr > td:nth-child(1) {
   width: 14px
 } */
-
-.ant-layout {
-  background-color: white !important;
-}
