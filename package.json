@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "start:api": "nx serve api",
-    "build": "nx build",
+    "build:api": "nx build api",
+    "build:front": "nx build front",
+    "build": "npm run build:api && npm run build:front",
     "test:para": "nx run-many --target=test --all --runInBand --silent",
     "test": "nx run-many --target=test --all --silent",
     "test:integ": "jest --group=integ --runInBand"
