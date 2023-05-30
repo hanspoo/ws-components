@@ -82,21 +82,36 @@ VITE_DB_USER=gargola
 VITE_DB_PASS=depiedra
 ```
 
-Crear usuario y base de datos postgresql:
+## Base de datos
 
-```
-sudo -u postgres ./bin/init-db.sh
-```
+El sistema utilizará las variables de entorno VITE*DB*\* para la conexión a la base de datos.
+Sólo en test usamos sqlite, en los otros ambientes usamos postgresql. Puede crear de cualquier
+forma la base de datos, por ejemplo:
 
-Se crea un usuario llamado starter, con contraseña starter y base de datos del mismo nombre.
+Iniciamos un shell como usuario postgres
 
-Ejecutar backend
+`sudo su - postgres`
+
+Creamos un usuario llamado "gargola" con la contraseña "depiedra", con permiso para crear bases de datos.
+
+`psql -c "create user gargola encrypted password 'depiedra' createdb;"`
+
+Luego ocupando ese usuario creamos una base de datos que se va a llamar igual que el usuario: "gargola".
+Para este comando postgresql nos pedirá la contraseña del usuario "gargola" en este caso es "depiedra".
+
+`createdb -h localhost -U gargola gargola`
+
+Finalmente creamos una extensión en esa base de datos para generar los identificadores más seguros con uuid:
+
+`psql -c 'create extension if not exists "uuid-ossp"' gargola`
+
+## Ejecutar backend
 
 ```
 nx serve api
 ```
 
-Ejecutar front en otro terminal
+## Ejecutar front en otro terminal
 
 ```
 nx serve front
@@ -127,16 +142,6 @@ Crear archivo .env.local en la raíz del proyecto con las variables, por ejemplo
 VITE_DB_NAME=gargola
 VITE_DB_USER=gargola
 VITE_DB_PASS=depiedra
-```
-
-Crear usuario y base de datos en postgres:
-
-```
-sudo su - postgres
-
-psql -c "create user gargola encrypted password 'depiedra' createdb;"
-createdb -h localhost -U gargola gargola
-psql -c 'create extension if not exists "uuid-ossp"' gargola
 ```
 
 El script bin/pg-create.sh hace esto mismo.
