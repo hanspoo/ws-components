@@ -84,7 +84,7 @@ VITE_DB_PASS=depiedra
 
 ## Base de datos
 
-El sistema utilizará las variables de entorno VITE*DB*\* para la conexión a la base de datos.
+El sistema utilizará las variables de entorno VITE_DB\* para la conexión a la base de datos.
 Sólo en test usamos sqlite, en los otros ambientes usamos postgresql. Puede crear de cualquier
 forma la base de datos, por ejemplo:
 
