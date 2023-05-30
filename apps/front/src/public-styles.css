@@ -14,14 +14,14 @@ body {
 footer {
   margin: 0;
   padding: 0;
-  background-color: #666 !important;
+  background-color: #222 !important;
   color: white;
   margin-top: auto;
-  height: 24px;
+  height: 18px;
   font-size: 12px;
   padding: 1em;
 }
 
 header {
-  background-color: #ddd !important;
+  background-color: #666 !important;
 }

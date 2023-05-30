@@ -44,14 +44,14 @@ export function PublicDecorator(props: PublicDecoratorProps) {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: 'coral',
+          colorPrimary: '#666',
         },
       }}
     >
       <Layout>
         <Header style={headerStyle}>
           <img
-            style={{ cursor: 'pointer', marginTop: '7px' }}
+            style={{ cursor: 'pointer', marginTop: '10px' }}
             onClick={goHome}
             alt=""
             src={logo}
