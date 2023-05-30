@@ -2,7 +2,14 @@
   "name": "starter-ws",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve",
+    "start:api": "nx serve api",
+    "build": "nx build",
+    "test:para": "nx run-many --target=test --all --runInBand --silent",
+    "test": "nx run-many --target=test --all --silent",
+    "test:integ": "jest --group=integ --runInBand"
+  },
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
