@@ -68,18 +68,18 @@ npm run test
 Crear archivo .env.local en raiz del proyecto:
 
 ```
-NX_SERVER_URL=http://localhost:3333
-NX_PORT=3333
-NX_UPLOAD_FOLDER=/home/username/uploads
+VITE_SERVER_URL=http://localhost:3333
+VITE_PORT=3333
+VITE_UPLOAD_FOLDER=/home/username/uploads
 
-NX_SMTP_USER=user@gmail.com
-NX_SMTP_PASS=xxxxxxxxx
-; NX_SMTP_SERVER=smtp.gmail.com
-; NX_SMTP_PORT=587
+VITE_SMTP_USER=user@gmail.com
+VITE_SMTP_PASS=xxxxxxxxx
+; VITE_SMTP_SERVER=smtp.gmail.com
+; VITE_SMTP_PORT=587
 
-NX_DB_NAME=gargola
-NX_DB_USER=gargola
-NX_DB_PASS=depiedra
+VITE_DB_NAME=gargola
+VITE_DB_USER=gargola
+VITE_DB_PASS=depiedra
 ```
 
 Crear usuario y base de datos postgresql:
@@ -124,9 +124,9 @@ node main.js
 Crear archivo .env.local en la raíz del proyecto con las variables, por ejemplo:
 
 ```
-NX_DB_NAME=gargola
-NX_DB_USER=gargola
-NX_DB_PASS=depiedra
+VITE_DB_NAME=gargola
+VITE_DB_USER=gargola
+VITE_DB_PASS=depiedra
 ```
 
 Crear usuario y base de datos en postgres:
