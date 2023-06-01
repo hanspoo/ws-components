@@ -3,9 +3,9 @@
 Prototipo operativo de proyecto multi empresas con bases de datos, ideal para un b2b. Moderno stack tecnológico.
 Por simplicidad no hemos usado frameworks más elaborados como nextjs ni nestjs, sólo React y Express.
 
-Vide de ayuda para instalar en youtube:
+Hemos preparado un video para ayudarte a instalar:
 
-[https://www.youtube.com/watch?v=H3FVW_YogM8]
+https://www.youtube.com/watch?v=H3FVW_YogM8
 
 ## Stack
 
