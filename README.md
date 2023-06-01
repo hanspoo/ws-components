@@ -77,33 +77,25 @@ VITE_SMTP_PASS=xxxxxxxxx
 ; VITE_SMTP_SERVER=smtp.gmail.com
 ; VITE_SMTP_PORT=587
 
-VITE_DB_NAME=gargola
-VITE_DB_USER=gargola
-VITE_DB_PASS=depiedra
+VITE_DB_NAME=b2b
+VITE_DB_USER=b2b
+VITE_DB_PASS=123456
 ```
 
 ## Base de datos
 
 El sistema utilizará las variables de entorno VITE_DB\* para la conexión a la base de datos.
 Sólo en test usamos sqlite, en los otros ambientes usamos postgresql. Puede crear de cualquier
-forma la base de datos, por ejemplo:
+forma la base de datos, tenemos este script para poder crear rápidamente la base de datos y credenciales:
 
-Iniciamos un shell como usuario postgres
+```
+sudo su postgres -s bin/create-db-as-postgres.sh b2b
+```
 
-`sudo su - postgres`
+Esto va a crear una base e datos llamada b2b, con un usario llamado b2b con
+contraseña 123456.
 
-Creamos un usuario llamado "gargola" con la contraseña "depiedra", con permiso para crear bases de datos.
-
-`psql -c "create user gargola encrypted password 'depiedra' createdb;"`
-
-Luego ocupando ese usuario creamos una base de datos que se va a llamar igual que el usuario: "gargola".
-Para este comando postgresql nos pedirá la contraseña del usuario "gargola" en este caso es "depiedra".
-
-`createdb -h localhost -U gargola gargola`
-
-Finalmente creamos una extensión en esa base de datos para generar los identificadores más seguros con uuid:
-
-`psql -c 'create extension if not exists "uuid-ossp"' gargola`
+Luego configurar con estos datos el archivo .env.
 
 ## Ejecutar backend
 
