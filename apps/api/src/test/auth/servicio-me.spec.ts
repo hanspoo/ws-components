@@ -1,7 +1,7 @@
-import { LoginRequest } from '@starter-ws/auth/api';
 import { inicializarSistema } from '@starter-ws/db';
 import request from 'supertest';
 import { app } from '../../app';
+import { logear } from '../utils';
 
 beforeAll(async () => {
   await inicializarSistema();
@@ -32,15 +32,3 @@ describe('servicio me', () => {
     });
   });
 });
-
-async function logear() {
-  const credentials: LoginRequest = {
-    email: 'admin@starter.com',
-    password: '123456',
-  };
-  const loginResult = await request(app)
-    .post('/api/auth/login')
-    .send(credentials);
-
-  return loginResult.headers['x-token'];
-}

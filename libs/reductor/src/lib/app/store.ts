@@ -1,4 +1,4 @@
-import { authSlice } from "../features/auth/authSlice";
+import { authSlice } from '../features/auth/authSlice';
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
@@ -9,18 +9,20 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   Action<string>
 >;
 
-import { configureStore, ThunkAction } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage";
-import { Action, combineReducers } from "redux";
-import { persistReducer, persistStore } from "redux-persist";
-import thunk from "redux-thunk";
+import { configureStore, ThunkAction } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
+import { Action, combineReducers } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import thunk from 'redux-thunk';
+import { usuariosSlice } from '../features/usuariosSlice';
 
 const reducers = combineReducers({
   auth: authSlice.reducer,
+  usersState: usuariosSlice.reducer,
 });
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
 };
 
@@ -28,7 +30,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
   reducer: persistedReducer,
-  devTools: process.env.NODE_ENV !== "production",
+  devTools: process.env.NODE_ENV !== 'production',
   middleware: [thunk],
 });
 

@@ -1,3 +1,12 @@
+import { Empresa } from '@starter-ws/db';
+
 declare module '*.module.css';
 
-import 'vite/client';
+declare global {
+  namespace Express {
+    export interface Request {
+      empresa: Empresa;
+      user: Usuario;
+    }
+  }
+}

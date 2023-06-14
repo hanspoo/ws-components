@@ -15,6 +15,7 @@ import {
   RecoverPasswordService,
   SignupService,
   ValidarSolicitudAutenticarEmail,
+  validate,
 } from '@starter-ws/db';
 import * as express from 'express';
 import { Request, Response } from 'express';
@@ -61,7 +62,7 @@ auth.post(
   '/signup',
   async function (req: Request<null, null, SignupRequest>, res: Response) {
     const service = new SignupService(req.body);
-    const [isOk, errors] = await service.validate();
+    const [isOk, errors] = await validate(service);
 
     if (!isOk) {
       return res.status(400).send(errors);

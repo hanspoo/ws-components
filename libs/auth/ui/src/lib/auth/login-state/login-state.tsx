@@ -1,3 +1,4 @@
+/* eslint-disable @nx/enforce-module-boundaries */
 import { RootState } from '@starter-ws/reductor';
 import { Button, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +10,7 @@ import { Me } from '@starter-ws/auth/api';
 import axios from 'axios';
 
 /* eslint-disable-next-line */
-export interface LoginStateProps {}
+export interface LoginStateProps { }
 
 export function LoginState(props: LoginStateProps) {
   const httpClient = useHttpClient();
