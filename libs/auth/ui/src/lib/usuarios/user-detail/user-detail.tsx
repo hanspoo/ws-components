@@ -3,7 +3,7 @@ import { Usuario } from '@starter-ws/db';
 import { Link } from 'react-router-dom';
 import { EditOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import EditarUsuario from '../../editar-usuario/editar-usuario';
+import EditarUsuario from '../editar-usuario/editar-usuario';
 
 const { Item } = Descriptions;
 

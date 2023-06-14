@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Alert, Button, Checkbox, Form, Input, Spin } from 'antd';
 import { Usuario } from '@starter-ws/db';
 import axios from 'axios';
-import { useHttpClient } from '../useHttpClient';
+import { useHttpClient } from '../../useHttpClient';
 import { useDispatch } from 'react-redux';
 import { actualizarUsuario } from '@starter-ws/reductor';
 
