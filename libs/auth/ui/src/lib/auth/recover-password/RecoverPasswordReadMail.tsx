@@ -76,14 +76,18 @@ export function RecoverPasswordReadMail({
 
             <div style={{ textAlign: 'center' }}>
               <Form.Item>
-                <Button
-                  block
-                  type="primary"
-                  htmlType="submit"
-                  style={{ marginRight: '0.1em' }}
-                >
-                  {loading ? <Spin /> : 'Enviar'}
-                </Button>
+                {loading ? (
+                  <Spin tip="Espere un momento..." />
+                ) : (
+                  <Button
+                    block
+                    type="primary"
+                    htmlType="submit"
+                    style={{ marginRight: '0.1em' }}
+                  >
+                    Enviar
+                  </Button>
+                )}
               </Form.Item>
             </div>
           </>

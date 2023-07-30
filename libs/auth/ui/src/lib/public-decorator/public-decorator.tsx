@@ -43,9 +43,7 @@ export function PublicDecorator(props: PublicDecoratorProps) {
   return (
     <ConfigProvider
       theme={{
-        token: {
-          colorPrimary: '#666',
-        },
+        token: {},
       }}
     >
       <Layout>
