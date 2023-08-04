@@ -11,7 +11,7 @@ import { SignupCoordinator } from '../signup/signup-coordinator/signup-coordinat
 import PublicDecorator from '../public-decorator/public-decorator';
 
 /* eslint-disable-next-line */
-export interface LoginSectionProps { }
+export interface LoginSectionProps {}
 
 const { Title } = Typography;
 enum View {
@@ -22,10 +22,11 @@ enum View {
   RECOVER_PASSWORD,
 }
 export function LoginSection(props: LoginSectionProps) {
-  return <PublicDecorator>
-    <DoLoginSection {...props} />
-  </PublicDecorator>
-
+  return (
+    <PublicDecorator>
+      <DoLoginSection {...props} />
+    </PublicDecorator>
+  );
 }
 export function DoLoginSection(props: LoginSectionProps) {
   const [email, setEmail] = useState('');

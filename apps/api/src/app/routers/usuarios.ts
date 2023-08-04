@@ -2,7 +2,6 @@ import * as express from 'express';
 import { Request, Response } from 'express';
 
 import { dataSource, Empresa, Usuario, Validacion } from '@starter-ws/db';
-import { log } from 'console';
 
 const usuarios = express.Router();
 usuarios.get('/', async function (req: Request, res: Response) {
@@ -18,7 +17,7 @@ usuarios.get('/', async function (req: Request, res: Response) {
   );
 });
 
-usuarios.post('/', async (req: Request, res) => {
+usuarios.post('/', async (req: Request & { empresa: Empresa }, res) => {
   const repo = dataSource.getRepository(Usuario);
 
   const user: Usuario = repo.create(req.body) as any as Usuario;
@@ -31,7 +30,10 @@ usuarios.post('/', async (req: Request, res) => {
 
 usuarios.put(
   '/:id',
-  async (req: Request<{ id: string }, any, Partial<Usuario>>, res) => {
+  async (
+    req: { user: Usuario } & Request<{ id: string }, any, Partial<Usuario>>,
+    res
+  ) => {
     // recuperar el usuario que hay que modificar
 
     const { id } = req.params;

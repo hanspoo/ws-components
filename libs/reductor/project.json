@@ -4,16 +4,6 @@
   "sourceRoot": "libs/reductor/src",
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/reductor",
-        "main": "libs/reductor/src/index.ts",
-        "tsConfig": "libs/reductor/tsconfig.lib.json",
-        "assets": ["libs/reductor/*.md"]
-      }
-    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],

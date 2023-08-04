@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { Alert, Button, Checkbox, Form, Input, Spin } from 'antd';
 import { Usuario } from '@starter-ws/db';
 import axios from 'axios';
-import { useHttpClient } from '../../useHttpClient';
-import { useDispatch } from 'react-redux';
-import { actualizarUsuario } from '@starter-ws/reductor';
 
+import { useDispatch } from 'react-redux';
+import { useHttpClient } from '../../useHttpClient';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { actualizarUsuario } from '@starter-ws/reductor';
 
 type EditarUsuarioProps = {
   usuario: Usuario;
-  cancelar(): void
-}
+  cancelar(): void;
+};
 
 export function EditarUsuario({ usuario, cancelar }: EditarUsuarioProps) {
-
   const dispatch = useDispatch();
   const httpClient = useHttpClient();
 
@@ -24,18 +24,17 @@ export function EditarUsuario({ usuario, cancelar }: EditarUsuarioProps) {
   const onFinish = (values: any) => {
     setLoading(true);
 
-    httpClient.put(`/api/usuarios/${usuario.id}`, values)
+    httpClient
+      .put(`/api/usuarios/${usuario.id}`, values)
       .then((response) => {
         setOk(true);
-        dispatch(actualizarUsuario(response.data as Usuario))
+        dispatch(actualizarUsuario(response.data as Usuario));
         setLoading(false);
       })
       .catch((error) => {
         setError(JSON.stringify(error.response.data));
         setLoading(false);
       });
-
-
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -43,35 +42,43 @@ export function EditarUsuario({ usuario, cancelar }: EditarUsuarioProps) {
   };
 
   if (loading) return <Spin />;
-  if (error)
-    return <p>{error}</p>
+  if (error) return <p>{error}</p>;
 
   if (ok === true)
-    return <div>
-      <span>
+    return (
+      <div>
         <span>
-          <p>
-            <Alert
-              message="Actualización de usuario"
-              description={<div><p>El usuario fue actualizado correctamente.</p><Button onClick={cancelar}>Continuar</Button></div>}
-              type="success"
-              showIcon
-            ></Alert>
-          </p>
+          <span>
+            <p>
+              <Alert
+                message="Actualización de usuario"
+                description={
+                  <div>
+                    <p>El usuario fue actualizado correctamente.</p>
+                    <Button onClick={cancelar}>Continuar</Button>
+                  </div>
+                }
+                type="success"
+                showIcon
+              ></Alert>
+            </p>
+          </span>
         </span>
-      </span>
-
-    </div>
-
+      </div>
+    );
 
   return (
     <Form
-      layout='vertical'
+      layout="vertical"
       name="editar-usuario"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
-      initialValues={{ remember: true, nombre: usuario.nombre, email: usuario.email }}
+      initialValues={{
+        remember: true,
+        nombre: usuario.nombre,
+        email: usuario.email,
+      }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
@@ -84,7 +91,6 @@ export function EditarUsuario({ usuario, cancelar }: EditarUsuarioProps) {
         <Input />
       </Form.Item>
 
-
       <Form.Item
         label="Email"
         name="email"
@@ -93,12 +99,15 @@ export function EditarUsuario({ usuario, cancelar }: EditarUsuarioProps) {
         <Input />
       </Form.Item>
 
-
       <Form.Item>
         <Button type="primary" htmlType="submit">
           Enviar
         </Button>
-        <Button style={{ marginLeft: '0.25em' }} htmlType="button" onClick={cancelar}>
+        <Button
+          style={{ marginLeft: '0.25em' }}
+          htmlType="button"
+          onClick={cancelar}
+        >
           Cancelar
         </Button>
       </Form.Item>
@@ -107,6 +116,3 @@ export function EditarUsuario({ usuario, cancelar }: EditarUsuarioProps) {
 }
 
 export default EditarUsuario;
-
-
-

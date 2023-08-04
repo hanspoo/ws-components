@@ -22,7 +22,6 @@
       "@starter-ws/mail-utils": ["libs/mail-utils/src/index.ts"],
       "@starter-ws/reductor": ["libs/reductor/src/index.ts"],
       "@starter-ws/shared": ["libs/shared/src/index.ts"],
-      "@starter-ws/test-lib": ["libs/test-lib/src/index.ts"],
       "@starter-ws/types-utils": ["libs/types-utils/src/index.ts"]
     }
   },

@@ -1,5 +1,8 @@
+export { Validacion } from './lib/Validacion';
+
+export { BuilderUsuarios } from './test/BuilderUsuarios';
+
 export * from './lib/data-source';
-export * from './lib/usuarios/Validacion';
 export * from './lib/inicializarSistema';
 
 export * from './lib/entity/auth/solicitud-registro.entity';
@@ -28,5 +31,3 @@ export * from './lib/auth/ExecuteChangePassService';
 // find ./lib/entity/ -type f |perl -ane 'print qq#export * from "$F[0]"\n#' |sed s/\.ts//
 
 export * from './lib/registration/RegistrationServiceEmailStage';
-export * from './lib/auth/validation';
-export * from './test/BuilderUsuarios';

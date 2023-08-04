@@ -24,15 +24,15 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter1058"
-       x="-0.070381553"
-       width="1.1407631"
-       y="-0.10053969"
-       height="1.2010794">
+       id="filter1640"
+       x="-0.10427666"
+       width="1.2085533"
+       y="-0.15171386"
+       height="1.3034277">
       <feGaussianBlur
          inkscape:collect="always"
-         stdDeviation="0.92089636"
-         id="feGaussianBlur1060" />
+         stdDeviation="1.3572178"
+         id="feGaussianBlur1642" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -42,9 +42,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="313.1974"
-     inkscape:cy="694.81436"
+     inkscape:zoom="1.4"
+     inkscape:cx="432.14286"
+     inkscape:cy="656.42857"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -61,7 +61,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -70,16 +70,15 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g1235-3"
-       transform="translate(0.50230176,0.68499357)"
-       inkscape:export-xdpi="34.632206"
-       inkscape:export-ydpi="34.632206"
-       style="filter:url(#filter1058);fill:#000000;fill-opacity:0.75845408"
-       inkscape:export-filename="/home/julian/proyectos-publicos/b2b-starter/libs/auth/ui/src/lib/public-decorator/logo.png">
+       transform="translate(0.98361647,0.51671095)"
+       id="g1235-4"
+       style="fill:#000000;fill-opacity:0.75845408;filter:url(#filter1640)"
+       inkscape:export-xdpi="49"
+       inkscape:export-ydpi="49">
       <text
          inkscape:export-ydpi="63.883987"
          inkscape:export-xdpi="63.883987"
-         id="text817-6"
+         id="text817-3"
          y="106.57121"
          x="80.91983"
          style="font-style:normal;font-weight:normal;font-size:17.79682159px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0.75845408;stroke:none;stroke-width:0.44492051"
@@ -87,12 +86,12 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#000000;fill-opacity:0.75845408;stroke-width:0.44492051"
            y="106.57121"
            x="80.91983"
-           id="tspan815-7"
-           sodipodi:role="line">b2b</tspan></text>
+           id="tspan815-1"
+           sodipodi:role="line">B2B</tspan></text>
       <text
          inkscape:export-ydpi="63.883987"
          inkscape:export-xdpi="63.883987"
-         id="text821-5"
+         id="text821-4"
          y="115.10394"
          x="81.657082"
          style="font-style:normal;font-weight:normal;font-size:7.24056673px;line-height:1.25;font-family:sans-serif;letter-spacing:1.2223748px;word-spacing:0px;fill:#000000;fill-opacity:0.75845408;stroke:none;stroke-width:0.18101417"
@@ -100,15 +99,14 @@
            style="letter-spacing:1.2223748px;fill:#000000;fill-opacity:0.75845408;stroke-width:0.18101417"
            y="115.10394"
            x="81.657082"
-           id="tspan819-3"
+           id="tspan819-6"
            sodipodi:role="line">starter</tspan></text>
     </g>
     <g
        id="g1235"
        transform="translate(-0.75595238,-0.56696429)"
-       inkscape:export-xdpi="34.632206"
-       inkscape:export-ydpi="34.632206"
-       inkscape:export-filename="/home/julian/proyectos-publicos/b2b-starter/libs/auth/ui/src/lib/public-decorator/logo.png">
+       inkscape:export-xdpi="49"
+       inkscape:export-ydpi="49">
       <text
          inkscape:export-ydpi="63.883987"
          inkscape:export-xdpi="63.883987"
@@ -121,7 +119,7 @@
            y="106.57121"
            x="80.91983"
            id="tspan815"
-           sodipodi:role="line">b2b</tspan></text>
+           sodipodi:role="line">B2B</tspan></text>
       <text
          inkscape:export-ydpi="63.883987"
          inkscape:export-xdpi="63.883987"
