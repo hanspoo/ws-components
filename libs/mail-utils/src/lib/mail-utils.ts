@@ -26,12 +26,24 @@ export function isValidEmail(email: string) {
 }
 
 export function mailer() {
-  return nodemailer.createTransport({
+  if (process.env['DEBUG']) {
+    console.log({
+      host: process.env.VITE_SMTP_SERVER || 'smtp.gmail.com',
+      port: process.env.VITE_SMTP_PORT || 587,
+      auth: {
+        user: process.env.VITE_SMTP_USER,
+        pass: process.env.VITE_SMTP_PASS,
+      },
+    });
+  }
+
+  const params: any = {
     host: process.env.VITE_SMTP_SERVER || 'smtp.gmail.com',
     port: process.env.VITE_SMTP_PORT || 587,
     auth: {
       user: process.env.VITE_SMTP_USER,
       pass: process.env.VITE_SMTP_PASS,
     },
-  });
+  };
+  return nodemailer.createTransport(params);
 }

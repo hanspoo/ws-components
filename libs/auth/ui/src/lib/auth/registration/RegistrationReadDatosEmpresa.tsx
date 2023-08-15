@@ -30,7 +30,7 @@ export function RegistrationReadDatosEmpresa({
 
     axios
       .post(
-        `${process.env.VITE_SERVER_URL}/api/registration/company-data`,
+        `${import.meta.env.VITE_SERVER_URL}/api/registration/company-data`,
         data
       )
       .then(() => {
@@ -49,57 +49,22 @@ export function RegistrationReadDatosEmpresa({
   };
 
   return (
-    <Form
-      layout="vertical"
-      className={styles['ant-form']}
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <>
-          <p>Complete los datos de su empresa.</p>
-
-          <Form.Item
-            label="Nombre empresa"
-            name="nombreEmpresa"
-            rules={[{ required: true, message: 'Requerido', min: 1 }]}
-          >
-            <Input placeholder="" />
-          </Form.Item>
-
-          <Form.Item
-            label="RUT o identificador legal"
-            name="rutEmpresa"
-            rules={[{ required: true, message: 'Requerido', min: 6 }]}
-          >
-            <Input placeholder="" />
-          </Form.Item>
-
-          <div style={{ textAlign: 'center' }}>
-            <Form.Item>
-              <Button
-                block
-                type="primary"
-                htmlType="submit"
-                style={{ marginRight: '0.1em' }}
-              >
-                {loading ? <Spin /> : 'Enviar'}
-              </Button>
-            </Form.Item>
-          </div>
-        </>
-      )}
-
-      <div style={{ textAlign: 'center' }}>
-        <Button style={{ marginTop: '1em' }} type="link" onClick={cancel}>
-          Volver al inicio
-        </Button>
-      </div>
-    </Form>
+    <div>
+      <Form
+        layout="vertical"
+        className={styles['ant-form']}
+        name="basic"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item label="Email" name="email" rules={[{ type: 'email' }]}>
+          <Input disabled value={email} />
+          <span style={{ display: 'none' }}>{email}</span>
+        </Form.Item>
+        <p>Validación: Correo validado exitosamente</p>
+      </Form>
+    </div>
   );
 }

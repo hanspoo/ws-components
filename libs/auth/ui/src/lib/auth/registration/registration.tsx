@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { Typography } from 'antd';
 import styles from '../../auth-form.module.css';
 import { RegistrationReadMail } from './RegistrationReadMail';
 import { RegistrationReadCode } from './RegistrationReadCode';
 import { RegistrationReadDatosEmpresa } from './RegistrationReadDatosEmpresa';
 import { RegistrationSuccessLanding } from './RegistrationSuccessLanding';
-
-const { Title } = Typography;
 
 enum View {
   READ_EMAIL,
@@ -14,22 +11,23 @@ enum View {
   READ_NEW_PASSWORD,
   LANDING_RECOVER_PASS,
 }
-export const Registration: React.FC<{ cancel: () => void }> = ({ cancel }) => {
+export const Registration: React.FC<{
+  cancel: () => void;
+  onSuccess: (email: string, token: string) => void;
+}> = ({ cancel, onSuccess }) => {
   return (
     <div className={styles['container']}>
       <div className={styles['login-form']}>
-        <Title level={3} style={{ marginBottom: '1em', display: 'block' }}>
-          Registrar Empresa
-        </Title>
-        <DoRegistration cancel={cancel} />
+        <DoRegistration cancel={cancel} onSuccess={onSuccess} />
       </div>
     </div>
   );
 };
 
-export const DoRegistration: React.FC<{ cancel: () => void }> = ({
-  cancel,
-}) => {
+export const DoRegistration: React.FC<{
+  cancel: () => void;
+  onSuccess: (email: string, token: string) => void;
+}> = ({ cancel, onSuccess }) => {
   const [view, setView] = useState(View.READ_EMAIL);
   const [email, setEmail] = useState<string>();
   const [token, setToken] = useState<string>();
@@ -38,6 +36,7 @@ export const DoRegistration: React.FC<{ cancel: () => void }> = ({
     if (!email) return <p>Error interno, no está definido el email (2)</p>;
     if (!token) return <p>Error interno, no está definido el token (2)</p>;
 
+    onSuccess(email, token);
     return (
       <RegistrationReadDatosEmpresa
         token={token}

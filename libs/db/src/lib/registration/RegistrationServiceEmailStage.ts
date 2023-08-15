@@ -1,9 +1,9 @@
-import { cleanupEmail, isValidEmail, mailer } from "@starter-ws/mail-utils";
-import { genCodSeguridad } from "@starter-ws/shared";
-import { dataSource } from "../data-source";
-import { SolicitudAutenticarEmail } from "../entity/auth/solicitud-autenticar-email.entity";
-import { Usuario } from "../entity/auth/usuario.entity";
-import { logger } from "../utils/logger";
+import { cleanupEmail, isValidEmail, mailer } from '@starter-ws/mail-utils';
+import { genCodSeguridad } from '@starter-ws/shared';
+import { dataSource } from '../data-source';
+import { SolicitudAutenticarEmail } from '../entity/auth/solicitud-autenticar-email.entity';
+import { Usuario } from '../entity/auth/usuario.entity';
+import { logger } from '../utils/logger';
 
 export type RegistrationServiceEmailStageResult = {
   success: boolean;
@@ -17,19 +17,19 @@ export class RegistrationEmailStageService {
     if (!isValidEmail(e)) {
       return {
         success: false,
-        msg: "REG002: Email inválido",
+        msg: 'REG002: Email inválido',
       };
     }
-    const u = await dataSource
-      .getRepository(Usuario)
-      .findOne({ where: { email: e } });
+    // const u = await dataSource
+    //   .getRepository(Usuario)
+    //   .findOne({ where: { email: e } });
 
-    if (u) {
-      return {
-        success: false,
-        msg: "REG001: El usuario ya está registrado en el sistema ",
-      };
-    }
+    // if (u) {
+    //   return {
+    //     success: false,
+    //     msg: "REG001: El usuario ya está registrado en el sistema ",
+    //   };
+    // }
     logger.debug(`Inicio: Salvando solicitud ${this.email}`);
     const repoSol = dataSource.getRepository(SolicitudAutenticarEmail);
     this.cseg = genCodSeguridad();
@@ -41,7 +41,7 @@ export class RegistrationEmailStageService {
 
     const res: RegistrationServiceEmailStageResult = {
       success: true,
-      msg: "",
+      msg: '',
     };
 
     return Promise.resolve(res);
@@ -53,18 +53,18 @@ export class RegistrationEmailStageService {
     const response = transporter.sendMail({
       from: '"Hans Poo" <hanscpoo@welinux.cl>', // sender address
       to: this.email,
-      subject: "Registro en starter, validando email",
+      subject: 'Servicio País',
       html: `
         <p>Hola,</p>
 
-        <p>Estamos comprobando que este es su email; copie y pegue este c&oacute;digo 
+        <p>Estamos comprobando que este es tu email; copie y pegue este c&oacute;digo 
         de confirmaci&oacute;n de seis d&iacute;gitos en la pantalla de su navegador.</p>
          
          <h1>${this.cseg}</h1>
          
          <p>Si no encuentra d&oacute;nde introducir el c&oacute;digo,&#160;vuelva a introducir su correo electr&oacute;nico aqu&iacute;..</p>
         
-        <p> El equipo de starter<br>
+        <p> El equipo de Servicio Pais<br>
          &iquest;Necesita ayuda?&#160;P&oacute;ngase en contacto con nosotros.</p>
         `,
     });

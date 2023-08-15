@@ -1,3 +1,7 @@
+export { Registration } from './lib/auth/registration/registration';
+
+export { RecoverPassword } from './lib/auth/recover-password/recover-password';
+
 export { CustomLink } from './lib/CustomLink';
 
 export { UserDetailFromRouter } from './lib/usuarios/UserDetailFromRouter';

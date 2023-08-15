@@ -21,7 +21,10 @@ export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
     const data: RegistrationRequest = { email };
 
     customAxios
-      .post(`/api/registration/validate-email`, data)
+      .post(
+        `${import.meta.env.VITE_SERVER_URL}/api/registration/validate-email`,
+        data
+      )
       .then(() => {
         next(email);
         // setError(response.statusText); setLoading(false);
@@ -53,18 +56,6 @@ export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
           <p>{error}</p>
         ) : (
           <>
-            <p>
-              <em>Bienvenido,</em>
-            </p>{' '}
-            <p>
-              Lo primero que haremos será verificar que eres dueño de tu correo
-              electrónico, desde ya te pedimos disculpas por tener que hacer
-              este paso adicional.
-            </p>
-            <p>
-              Ingrese su correo electrónico y le enviaremos instrucciones para
-              continuar.
-            </p>
             <Form.Item
               label="Email"
               name="email"
@@ -72,6 +63,10 @@ export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
             >
               <Input autoFocus />
             </Form.Item>
+            <p>Validación: Pendiente</p>
+            <p>
+              Para continuar es necesario que validemos tu correo electrónico:
+            </p>
             <div style={{ textAlign: 'center' }}>
               <Form.Item>
                 <Button
@@ -80,18 +75,12 @@ export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
                   htmlType="submit"
                   style={{ marginRight: '0.1em' }}
                 >
-                  {loading ? <Spin size="small" /> : 'Enviar'}
+                  {loading ? <Spin size="small" /> : 'Validar email'}
                 </Button>
               </Form.Item>
             </div>
           </>
         )}
-
-        <div style={{ textAlign: 'center' }}>
-          <Button style={{ marginTop: '1em' }} type="link" onClick={cancel}>
-            Volver al inicio
-          </Button>
-        </div>
       </Form>
     </div>
   );

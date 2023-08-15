@@ -27,7 +27,10 @@ export function RegistrationReadCode({
     const data: RequestValidaCodSeguridad = { email, cseg };
 
     axios
-      .post(`/api/auth/valida-cod-seguridad`, data)
+      .post(
+        `${import.meta.env.VITE_SERVER_URL}/api/auth/valida-cod-seguridad`,
+        data
+      )
       .then((response) => {
         const { token } = response.data;
         if (!token) {
@@ -64,8 +67,12 @@ export function RegistrationReadCode({
           <p>{error}</p>
         ) : (
           <>
+            <Form.Item label="Email" name="email" rules={[{ type: 'email' }]}>
+              <Input disabled value={email} />
+              <span style={{ display: 'none' }}>{email}</span>
+            </Form.Item>
             <p>
-              Ingrese el código de seguridad que hemos enviado a su correo
+              Ingresa el código de seguridad que hemos enviado a tu correo
               electrónico:
             </p>
 
@@ -81,18 +88,20 @@ export function RegistrationReadCode({
                   htmlType="submit"
                   style={{ marginRight: '0.1em' }}
                 >
-                  {loading ? <Spin size="small" /> : 'Enviar'}
+                  {loading ? (
+                    <Spin size="small" />
+                  ) : (
+                    'Validar código de seguridad'
+                  )}
                 </Button>
+                <Button style={{ margin: '.5em 0' }} block>
+                  Leer de nuevo el email
+                </Button>
+                <Button block>Reenviar código de seguridad</Button>
               </Form.Item>
             </div>
           </>
         )}
-
-        <div style={{ textAlign: 'center' }}>
-          <Button style={{ marginTop: '1em' }} type="link" onClick={cancel}>
-            Volver al inicio
-          </Button>
-        </div>
       </Form>
     </div>
   );

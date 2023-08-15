@@ -1,0 +1,80 @@
+{
+  "name": "verif-email",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/verif-email/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/verif-email"
+      },
+
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "verif-email:build",
+        "proxyConfig": "apps/front/proxy.conf.json"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "verif-email:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "verif-email:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "verif-email:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "verif-email:build:development"
+        },
+        "production": {
+          "buildTarget": "verif-email:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/apps/verif-email"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/verif-email"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/verif-email/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "verif-email:build"
+      }
+    }
+  },
+  "tags": []
+}
