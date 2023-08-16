@@ -49,22 +49,21 @@ export function RegistrationReadDatosEmpresa({
   };
 
   return (
-    <div>
-      <Form
-        layout="vertical"
-        className={styles['ant-form']}
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item label="Email" name="email" rules={[{ type: 'email' }]}>
-          <Input disabled value={email} />
-          <span style={{ display: 'none' }}>{email}</span>
-        </Form.Item>
-        <p>Validación: Correo validado exitosamente</p>
-      </Form>
-    </div>
+    <>
+      <div className="form-group  ">
+        <label htmlFor="email" className=" control-label">
+          Email <span className="required">*</span>
+        </label>{' '}
+        <input
+          className="form-control "
+          name="email"
+          maxLength={64}
+          value={email}
+          disabled
+        />
+        <span className="error" />
+      </div>
+      <p>Validación: Correo validado exitosamente</p>
+    </>
   );
 }

@@ -71,7 +71,7 @@ export function RegistrationReadCode({
       <p>Validación: Pendiente</p>
 
       <p>
-        157452 Ingresa el código de seguridad que hemos enviado a tu correo
+        Ingresa el código de seguridad que hemos enviado a tu correo
         electrónico:
       </p>
 

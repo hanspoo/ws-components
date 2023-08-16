@@ -8,6 +8,11 @@
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
+      "rollupConfig": "rollup.config.js",
+      "rollupOptions": {
+        "external": ["React", "react"]
+      },
+      "chunkSizeWarningLimit": 10000,
       "options": {
         "outputPath": "dist/apps/verif-email"
       },
