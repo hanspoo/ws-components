@@ -41,7 +41,7 @@ export const DoRegistration: React.FC<{
       <RegistrationReadDatosEmpresa
         token={token}
         email={email}
-        cancel={cancel}
+        cancel={() => setView(View.READ_EMAIL)}
         next={() => setView(View.LANDING_RECOVER_PASS)}
       />
     );
@@ -55,7 +55,7 @@ export const DoRegistration: React.FC<{
     return (
       <RegistrationReadCode
         email={email}
-        cancel={cancel}
+        cancel={() => setView(View.READ_EMAIL)}
         next={(token) => {
           setToken(token);
           setView(View.READ_NEW_PASSWORD);

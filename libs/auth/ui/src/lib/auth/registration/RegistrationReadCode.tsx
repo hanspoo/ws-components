@@ -103,11 +103,9 @@ export function RegistrationReadCode({
             type="button"
             className="btn btn-default"
             style={{ margin: '0.5em 0' }}
+            onClick={cancel}
           >
             Leer de nuevo el email
-          </button>
-          <button type="button" className="btn btn-default">
-            Reenviar código de seguridad
           </button>
         </div>
       </div>
