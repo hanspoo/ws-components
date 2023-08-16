@@ -21,6 +21,12 @@
         }
       }
     },
+    "publish": {
+      "executor": "@nx/run-commands",
+      "options": {
+        "command": "cd dist/apps; find verif-email | cpio -pdmv ../intervi/public/"
+      }
+    },
     "serve": {
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",

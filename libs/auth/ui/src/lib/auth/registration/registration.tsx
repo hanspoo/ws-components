@@ -13,12 +13,11 @@ enum View {
 }
 export const Registration: React.FC<{
   cancel: () => void;
-  onSuccess: (email: string, token: string) => void;
-}> = ({ cancel, onSuccess }) => {
+}> = ({ cancel }) => {
   return (
     <div className={styles['container']}>
       <div className={styles['login-form']}>
-        <DoRegistration cancel={cancel} onSuccess={onSuccess} />
+        <DoRegistration cancel={cancel} />
       </div>
     </div>
   );
@@ -26,8 +25,7 @@ export const Registration: React.FC<{
 
 export const DoRegistration: React.FC<{
   cancel: () => void;
-  onSuccess: (email: string, token: string) => void;
-}> = ({ cancel, onSuccess }) => {
+}> = ({ cancel }) => {
   const [view, setView] = useState(View.READ_EMAIL);
   const [email, setEmail] = useState<string>();
   const [token, setToken] = useState<string>();
@@ -36,7 +34,9 @@ export const DoRegistration: React.FC<{
     if (!email) return <p>Error interno, no está definido el email (2)</p>;
     if (!token) return <p>Error interno, no está definido el token (2)</p>;
 
-    onSuccess(email, token);
+    // eslint-disable-next-line no-eval
+    (window as any).emailValidadoHandler(email, token);
+
     return (
       <RegistrationReadDatosEmpresa
         token={token}
