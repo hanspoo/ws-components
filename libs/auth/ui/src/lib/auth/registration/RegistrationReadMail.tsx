@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import styles from '../../auth-form.module.css';
-import { Button, Form, Input, Spin, Typography } from 'antd';
-
 import { RegistrationRequest } from '@starter-ws/auth/api';
 import customAxios from '../../customAxios';
+import { useState } from 'react';
 
 type RecoverComponentsArgs = {
   cancel: () => void;
   next: (email: string) => void;
 };
 
+const emailRegex = /^[a-z].*@(\w+\.)+\w+$/i;
+
 export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [email, setEmail] = useState<string>();
 
   const onFinish = (values: any) => {
     const { email } = values;
@@ -41,47 +41,41 @@ export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
     console.log('Failed:', errorInfo);
   };
 
+  function onChange(e: any) {
+    setEmail(e.target.value);
+  }
+
+  function onClick() {
+    onFinish({ email });
+  }
+
+  if (error) return <p>{error}</p>;
+
   return (
-    <div>
-      <Form
-        layout="vertical"
-        className={styles['ant-form']}
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
+    <>
+      <div className="form-group  ">
+        <label htmlFor="email" className=" control-label">
+          Email <span className="required">*</span>
+        </label>{' '}
+        <input
+          className="form-control "
+          name="email"
+          maxLength={64}
+          value={email}
+          onChange={onChange}
+        />
+        <span className="error" />
+      </div>
+      <p>Validación: Pendiente</p>
+      <p>Para continuar es necesario que validemos tu correo electrónico:</p>
+      <button
+        type="button"
+        className="btn btn-default block"
+        disabled={!emailRegex.test(email || '')}
+        onClick={onClick}
       >
-        {error ? (
-          <p>{error}</p>
-        ) : (
-          <>
-            <Form.Item
-              label="Email"
-              name="email"
-              rules={[{ type: 'email', required: true }]}
-            >
-              <Input autoFocus />
-            </Form.Item>
-            <p>Validación: Pendiente</p>
-            <p>
-              Para continuar es necesario que validemos tu correo electrónico:
-            </p>
-            <div style={{ textAlign: 'center' }}>
-              <Form.Item>
-                <Button
-                  block
-                  type="primary"
-                  htmlType="submit"
-                  style={{ marginRight: '0.1em' }}
-                >
-                  {loading ? <Spin size="small" /> : 'Validar email'}
-                </Button>
-              </Form.Item>
-            </div>
-          </>
-        )}
-      </Form>
-    </div>
+        {loading ? 'Enviando...' : 'Validar email'}
+      </button>
+    </>
   );
 }

@@ -1,10 +1,6 @@
 import { useState } from 'react';
-import styles from '../../auth-form.module.css';
-import { Button, Form, Input, Spin, Typography } from 'antd';
 import { RequestValidaCodSeguridad } from '@starter-ws/auth/api';
 import axios from 'axios';
-
-const { Title } = Typography;
 
 type RegistrationReadCodeArgs = {
   cancel: () => void;
@@ -19,12 +15,15 @@ export function RegistrationReadCode({
 }: RegistrationReadCodeArgs) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [codigo, setCodigo] = useState<number>();
 
   const onFinish = (values: any) => {
-    const { cseg } = values;
-
+    if (typeof codigo === 'undefined') {
+      setError('Debe ingresar el código');
+      return;
+    }
     setLoading(true);
-    const data: RequestValidaCodSeguridad = { email, cseg };
+    const data: RequestValidaCodSeguridad = { email, cseg: codigo };
 
     axios
       .post(
@@ -52,57 +51,66 @@ export function RegistrationReadCode({
     console.log('Failed:', errorInfo);
   };
 
+  if (error) return <p>{error}</p>;
+
   return (
-    <div>
-      <Form
-        layout="vertical"
-        className={styles['ant-form']}
-        name="basic"
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        {error ? (
-          <p>{error}</p>
-        ) : (
-          <>
-            <Form.Item label="Email" name="email" rules={[{ type: 'email' }]}>
-              <Input disabled value={email} />
-              <span style={{ display: 'none' }}>{email}</span>
-            </Form.Item>
-            <p>
-              Ingresa el código de seguridad que hemos enviado a tu correo
-              electrónico:
-            </p>
+    <>
+      <div className="form-group  ">
+        <label htmlFor="email" className=" control-label">
+          Email <span className="required">*</span>
+        </label>{' '}
+        <input
+          className="form-control "
+          name="email"
+          maxLength={64}
+          value={email}
+          disabled
+        />
+        <span className="error" />
+      </div>
+      <p>Validación: Pendiente</p>
 
-            <Form.Item label="Código de seguridad" name="cseg">
-              <Input autoFocus />
-            </Form.Item>
+      <p>
+        157452 Ingresa el código de seguridad que hemos enviado a tu correo
+        electrónico:
+      </p>
 
-            <div style={{ textAlign: 'center' }}>
-              <Form.Item>
-                <Button
-                  block
-                  type="primary"
-                  htmlType="submit"
-                  style={{ marginRight: '0.1em' }}
-                >
-                  {loading ? (
-                    <Spin size="small" />
-                  ) : (
-                    'Validar código de seguridad'
-                  )}
-                </Button>
-                <Button style={{ margin: '.5em 0' }} block>
-                  Leer de nuevo el email
-                </Button>
-                <Button block>Reenviar código de seguridad</Button>
-              </Form.Item>
-            </div>
-          </>
-        )}
-      </Form>
-    </div>
+      <div className="form-group  ">
+        <label htmlFor="codigo" className=" control-label">
+          Código de seguridad <span className="required">*</span>
+        </label>{' '}
+        <input
+          className="form-control "
+          name="codigo"
+          maxLength={64}
+          value={codigo}
+          onChange={(e: any) => setCodigo(e.target.value)}
+        />
+        <span className="error" />
+      </div>
+
+      <div>
+        <div>
+          <button
+            disabled={!(codigo && codigo.toString().length === 6)}
+            type="button"
+            className="btn btn-primary"
+            onClick={onFinish}
+          >
+            {loading ? 'enviando...' : 'Validar código de seguridad'}
+          </button>
+          <button
+            type="button"
+            className="btn btn-default"
+            style={{ margin: '0.5em 0' }}
+          >
+            Leer de nuevo el email
+          </button>
+          <button type="button" className="btn btn-default">
+            Reenviar código de seguridad
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
