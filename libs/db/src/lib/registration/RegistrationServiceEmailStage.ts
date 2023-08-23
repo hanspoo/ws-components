@@ -57,13 +57,12 @@ export class RegistrationEmailStageService {
       html: `
         <p>Hola,</p>
 
-        <p>Estamos comprobando que este es tu email; copie y pegue este c&oacute;digo 
-        de confirmaci&oacute;n de seis d&iacute;gitos en la pantalla de su navegador.</p>
+        <p>Estamos comprobando que este es tu email; copia y pega este c&oacute;digo 
+        de confirmaci&oacute;n de seis d&iacute;gitos en la pantalla de tu navegador.</p>
          
          <h1>${this.cseg}</h1>
          
-         <p>Si no encuentra d&oacute;nde introducir el c&oacute;digo,&#160;vuelva a introducir su correo electr&oacute;nico aqu&iacute;..</p>
-        
+       
         <p> El equipo de Servicio Pais<br>
          &iquest;Necesita ayuda?&#160;P&oacute;ngase en contacto con nosotros.</p>
         `,

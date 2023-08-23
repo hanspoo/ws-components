@@ -27,9 +27,9 @@
       }
     },
     "publish": {
-      "executor": "@nx/run-commands",
+      "executor": "nx:run-commands",
       "options": {
-        "command": "cd dist/apps; find verif-email | cpio -pdmv ../intervi/public/"
+        "command": "find dist/apps/verif-email -name \\*.js -exec cp {} ~/fundacion/intervi/public/componentes/leer-email-validando.js \\;"
       }
     },
     "serve": {

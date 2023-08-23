@@ -12,7 +12,7 @@ const emailRegex = /^[a-z].*@(\w+\.)+\w+$/i;
 export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [email, setEmail] = useState<string>();
+  const [email, setEmail] = useState<string>('');
 
   const onFinish = (values: any) => {
     const { email } = values;
@@ -70,7 +70,7 @@ export function RegistrationReadMail({ cancel, next }: RecoverComponentsArgs) {
       <p>Para continuar es necesario que validemos tu correo electrónico:</p>
       <button
         type="button"
-        className="btn btn-default block"
+        className="btn btn-primary block"
         disabled={!emailRegex.test(email || '')}
         onClick={onClick}
       >

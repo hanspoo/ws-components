@@ -43,6 +43,7 @@ export function RegistrationReadCode({
         // next();
         console.log(error);
         setError(error.response.statusText || error.message);
+        setTimeout(() => setError(''), 2000);
         setLoading(false);
       });
   };
@@ -50,8 +51,6 @@ export function RegistrationReadCode({
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
-
-  if (error) return <p>{error}</p>;
 
   return (
     <>
@@ -105,9 +104,10 @@ export function RegistrationReadCode({
             style={{ margin: '0.5em 0' }}
             onClick={cancel}
           >
-            Leer de nuevo el email
+            Cambiar el email
           </button>
         </div>
+        {error && <p>Código inválido, intente nuevamente</p>}
       </div>
     </>
   );
