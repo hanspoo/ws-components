@@ -1,0 +1,86 @@
+{
+  "name": "file-upload",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/file-upload/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/file-upload"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "find dist/apps/file-upload -name \\*.js -exec cp {} ~/fundacion/intervi/public/componentes/file-upload.js \\;"
+      }
+    },
+
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "file-upload:build"
+      },
+      "configurations": {
+        "development": {
+          "proxyConfig": "apps/file-upload/proxy.conf.json",
+          "buildTarget": "file-upload:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "file-upload:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "file-upload:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "file-upload:build:development"
+        },
+        "production": {
+          "buildTarget": "file-upload:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/apps/file-upload"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/file-upload"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/file-upload/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "file-upload:build"
+      }
+    }
+  },
+  "tags": []
+}
