@@ -1,6 +1,6 @@
-import { classForMime, formatBytes } from '@starter-ws/shared';
 import axios from 'axios';
 import { ChangeEvent, useState } from 'react';
+import { FileDetail } from './FileDetail';
 
 type FileUploadSingleProps = {
   campoId: string;
@@ -100,45 +100,7 @@ function FileUploadSingle({ campoId }: FileUploadSingleProps) {
 
   if (file)
     return (
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <i
-          aria-hidden="true"
-          style={{ fontSize: '48px', marginRight: '7px' }}
-          className={`fa-solid ${classForMime(file.type)}`}
-        ></i>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-around',
-          }}
-        >
-          <div>
-            {file.name}
-            <span
-              style={{ marginLeft: '1em', cursor: 'pointer', color: 'orange' }}
-              title="Editar"
-              onClick={() => setSelArchivo(true)}
-              aria-hidden="true"
-              className="glyphicon glyphicon-edit"
-            ></span>
-            <div>
-              <small>{formatBytes(file.size)}</small>
-            </div>
-          </div>
-          {bingo && (
-            <em>
-              <small style={{ color: '#666' }}>
-                <span
-                  aria-hidden="true"
-                  className="glyphicon glyphicon-info-sign"
-                ></span>{' '}
-                Archivo subido correctamente
-              </small>
-            </em>
-          )}
-        </div>
-      </div>
+      <FileDetail file={file} setSelArchivo={setSelArchivo} bingo={bingo} />
     );
 
   return (
