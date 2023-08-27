@@ -23,7 +23,7 @@ interface WebDoc {
   mtime: number;
 }
 
-function FileUploadSingle({ campoId }: FileUploadSingleProps) {
+export function FileUploadSingle({ campoId }: FileUploadSingleProps) {
   const [bingo, setBingo] = useState(false);
   const [file, setFile] = useState<File>();
   const [selArchivo, setSelArchivo] = useState(false);

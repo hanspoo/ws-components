@@ -55,11 +55,11 @@ export function RegistrationReadDatosEmpresa({
           Email <span className="required">*</span>
         </label>{' '}
         <input
-          className="form-control "
+          className="form-control disabled"
           name="email"
           maxLength={64}
           value={email}
-          disabled
+          readOnly
         />
         <span className="error" />
       </div>
