@@ -26,7 +26,6 @@
         "command": "find dist/apps/file-upload -name \\*.js -exec cp {} ~/fundacion/intervi/public/componentes/file-upload.js \\;"
       }
     },
-
     "serve": {
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
@@ -62,7 +61,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/file-upload"],
+      "outputs": ["{workspaceRoot}/coverage/apps/file-upload"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/file-upload"
@@ -79,6 +78,31 @@
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "file-upload:build"
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "apps/file-upload/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/file-upload",
+        "configDir": "apps/file-upload/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
       }
     }
   },

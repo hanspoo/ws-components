@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/mail-utils",
         "main": "libs/mail-utils/src/index.ts",
         "tsConfig": "libs/mail-utils/tsconfig.lib.json",
-        "assets": ["libs/mail-utils/*.md"]
+        "assets": ["libs/mail-utils/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

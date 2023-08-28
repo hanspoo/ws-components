@@ -7,11 +7,12 @@ import { Registration } from '@starter-ws/auth/ui';
 {
   const ele = document.getElementById('div-file-upload') as HTMLElement;
   const campoId = ele.getAttribute('campo') || 'archivo.id';
+  const actual = ele.getAttribute('actual') || '';
 
   const root = ReactDOM.createRoot(ele);
   root.render(
     <StrictMode>
-      <FileUploadSingle campoId={campoId} />
+      <FileUploadSingle campoId={campoId} actual={actual} />
     </StrictMode>
   );
 }

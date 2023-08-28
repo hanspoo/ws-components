@@ -16,7 +16,6 @@
       "options": {
         "outputPath": "dist/apps/verif-email"
       },
-
       "configurations": {
         "development": {
           "mode": "development"
@@ -67,7 +66,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/verif-email"],
+      "outputs": ["{workspaceRoot}/coverage/apps/verif-email"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/verif-email"

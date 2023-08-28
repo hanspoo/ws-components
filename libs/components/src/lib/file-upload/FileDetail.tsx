@@ -1,7 +1,7 @@
 import { classForMime, formatBytes } from '@starter-ws/shared';
 
 type FileDetailProps = {
-  file: any;
+  file: File;
   setSelArchivo: (sel: boolean) => void;
   bingo: boolean;
 };

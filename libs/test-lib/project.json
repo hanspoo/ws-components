@@ -11,7 +11,8 @@
         "outputPath": "dist/libs/test-lib",
         "main": "libs/test-lib/src/index.ts",
         "tsConfig": "libs/test-lib/tsconfig.lib.json",
-        "assets": ["libs/test-lib/*.md"]
+        "assets": ["libs/test-lib/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

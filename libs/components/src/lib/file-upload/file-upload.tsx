@@ -1,9 +1,27 @@
 import axios from 'axios';
+import React from 'react';
 import { ChangeEvent, useState } from 'react';
 import { FileDetail } from './FileDetail';
 
+interface Archivo {
+  id: number;
+  length: number;
+  nombre: string;
+  descripcion: string;
+  webDoc: {
+    nombre: string;
+    url: string;
+    archivoId: number;
+    size: number;
+    ctime: number;
+    mtime: number;
+  };
+  type: string;
+}
+
 type FileUploadSingleProps = {
   campoId: string;
+  actual: string;
 };
 
 interface RespuestaAgregarArchivo {
@@ -23,9 +41,45 @@ interface WebDoc {
   mtime: number;
 }
 
-export function FileUploadSingle({ campoId }: FileUploadSingleProps) {
-  const [bingo, setBingo] = useState(false);
+export function FileUploadSingle({ campoId, actual }: FileUploadSingleProps) {
+  if (actual) return <LoadFile campoId={campoId} actual={actual} />;
+  else return <DoFileUploadSingle campoId={campoId} />;
+}
+export function LoadFile({ campoId, actual }: FileUploadSingleProps) {
   const [file, setFile] = useState<File>();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  React.useEffect(() => {
+    axios
+      .get<Archivo>(`/intervi/archivos/${actual}`)
+      .then((response) => {
+        setFile(archivoToFile(response.data));
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  }, [campoId, actual]);
+
+  if (loading) return <span>Cargando...</span>;
+  if (error) return <span>{error}</span>;
+  if (!file) return <span>No se pudo recuperar el archivo</span>;
+
+  return <DoFileUploadSingle campoId={campoId} currFile={file} />;
+}
+
+type DoFileUploadSingleProps = {
+  campoId: string;
+  currFile?: File;
+};
+export function DoFileUploadSingle({
+  campoId,
+  currFile,
+}: DoFileUploadSingleProps) {
+  const [bingo, setBingo] = useState(false);
+  const [file, setFile] = useState<File | undefined>(currFile);
   const [selArchivo, setSelArchivo] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -116,3 +170,13 @@ export function FileUploadSingle({ campoId }: FileUploadSingleProps) {
 }
 
 export default FileUploadSingle;
+
+function archivoToFile(archivo: Archivo): File {
+  const file: Partial<File> = {
+    name: archivo.nombre,
+    size: archivo.length,
+    type: archivo.type,
+  };
+
+  return file as File;
+}

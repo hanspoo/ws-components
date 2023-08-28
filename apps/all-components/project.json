@@ -23,7 +23,7 @@
     "publish": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx build all-components|awk '/index.*js/ { print $1}' | sed 's:../../::' |  xargs -I{} cp {} ~/fundacion/intervi/public/componentes/all-components.js"
+        "command": "nx build all-components && cp $(ls dist/apps/all-components/assets/*.js) ~/fundacion/intervi/public/componentes/all-components.js"
       }
     },
     "serve": {
@@ -35,7 +35,8 @@
       "configurations": {
         "development": {
           "buildTarget": "all-components:build:development",
-          "hmr": true
+          "hmr": true,
+          "proxyConfig": "proxy.conf.json"
         },
         "production": {
           "buildTarget": "all-components:build:production",
@@ -60,7 +61,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/all-components"],
+      "outputs": ["{workspaceRoot}/coverage/apps/all-components"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/all-components"
