@@ -1,4 +1,4 @@
-export { Registration } from './lib/auth/registration/registration';
+export { EmailValidado as Registration } from './lib/auth/registration/email-validado';
 
 export { RecoverPassword } from './lib/auth/recover-password/recover-password';
 

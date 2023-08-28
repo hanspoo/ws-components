@@ -11,9 +11,7 @@ enum View {
   READ_NEW_PASSWORD,
   LANDING_RECOVER_PASS,
 }
-export const Registration: React.FC<{
-  cancel: () => void;
-}> = ({ cancel }) => {
+export function EmailValidado({ cancel }: { cancel: () => void }) {
   return (
     <div className={styles['container']}>
       <div className={styles['login-form']}>
@@ -21,7 +19,7 @@ export const Registration: React.FC<{
       </div>
     </div>
   );
-};
+}
 
 export const DoRegistration: React.FC<{
   cancel: () => void;

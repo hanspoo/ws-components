@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Registration } from './registration';
+import { Registration } from './email-validado';
 
 export default {
   component: Registration,
