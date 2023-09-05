@@ -8,15 +8,15 @@
       "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "apps/all-components-e2e/cypress.config.ts",
-        "devServerTarget": "all-components:serve:development",
+        "devServerTarget": "compapp:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "all-components:serve:production"
+          "devServerTarget": "compapp:serve:production"
         },
         "ci": {
-          "devServerTarget": "all-components:serve-static"
+          "devServerTarget": "compapp:serve-static"
         }
       }
     },
@@ -29,5 +29,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["all-components"]
+  "implicitDependencies": ["compapp"]
 }

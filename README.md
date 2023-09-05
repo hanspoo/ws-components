@@ -50,3 +50,15 @@ de datos persistente sólo requiere montar una carpeta.
 
 El correo saliente en producción debe ser diferente al de desarrollo.
 Se debe usar el archivo .env para cambiar el remitente y credenciales.
+
+## Despliegue
+
+El despliegue de aplicaciones de componentes react que se encuentran en un proyecto NX se desarrolla de la siguiente manera:
+
+Asignar un puerto.
+Lo primero es hacer una imagen con un Dockerfile que está en la carpeta de la aplicación
+Se tagea en el registry del microk8s
+Luego la primera vez se debe hacer un apply del archivo k8s para crear Deployment y Service.
+En los casos subsiguientes falta hacer la actualización de la aplicación y borrar el POD para que se vuelva a crear con la última versión, por eso estaba ocupando :latest como versión.
+Luego hacemos un ProxyPass en el apache hacia el puerto que tengamos en kubernetes con un sufijo de aplicación
+que usaremos en la etiqueta Script de la página en que lo vamos a incluir.

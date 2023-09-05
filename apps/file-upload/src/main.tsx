@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
-import { FileUploadSingle } from '@starter-ws/components';
+import { FileUploadSingle } from '@starter-ws/compis';
 
 const ele = document.getElementById('div-file-upload') as HTMLElement;
 const campoId = ele.getAttribute('campo') || 'archivo.id';

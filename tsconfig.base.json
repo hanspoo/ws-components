@@ -18,7 +18,7 @@
     "paths": {
       "@starter-ws/auth/api": ["libs/auth/api/src/index.ts"],
       "@starter-ws/auth/ui": ["libs/auth/ui/src/index.ts"],
-      "@starter-ws/components": ["libs/components/src/index.ts"],
+      "@starter-ws/compis": ["libs/compis/src/index.ts"],
       "@starter-ws/db": ["libs/db/src/index.ts"],
       "@starter-ws/mail-utils": ["libs/mail-utils/src/index.ts"],
       "@starter-ws/reductor": ["libs/reductor/src/index.ts"],
