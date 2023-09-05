@@ -10,7 +10,8 @@
     "build": "npm run build:api && npm run build:front",
     "test:para": "nx run-many --target=test --all --runInBand --silent",
     "test": "nx run-many --target=test --all --silent",
-    "test:integ": "jest --group=integ --runInBand"
+    "test:integ": "jest --group=integ --runInBand",
+    "build:all-components": "nx build all-components"
   },
   "private": true,
   "dependencies": {
