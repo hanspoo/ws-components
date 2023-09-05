@@ -11,6 +11,11 @@ enum View {
   READ_NEW_PASSWORD,
   LANDING_RECOVER_PASS,
 }
+
+/**
+ * Para validar la propiedad del email hemos usado el servicio de registro
+ * del b2b starter.
+ */
 export function EmailValidado({ cancel }: { cancel: () => void }) {
   return (
     <div className={styles['container']}>
