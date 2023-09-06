@@ -3,6 +3,7 @@ FROM node:18.12.1-buster-slim AS builder
 WORKDIR /app
 COPY package.json package-lock.json tsconfig.base.json ./
 COPY apps/ apps/
+COPY .env ./
 COPY libs/ libs/
 RUN npm ci
 RUN npm run build:compapp
