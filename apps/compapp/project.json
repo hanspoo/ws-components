@@ -23,7 +23,7 @@
     "publish": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx build all-components && cp $(ls dist/apps/compapp/assets/*.js) ~/fundacion/intervi/public/componentes/all-components.js"
+        "command": "nx build compapp && cp $(ls dist/apps/compapp/assets/*.js) dist/apps/compapp/all-components.js "
       }
     },
     "serve": {

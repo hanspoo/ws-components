@@ -11,7 +11,7 @@
     "test:para": "nx run-many --target=test --all --runInBand --silent",
     "test": "nx run-many --target=test --all --silent",
     "test:integ": "jest --group=integ --runInBand",
-    "build:compapp": "nx build compapp"
+    "build:compapp": "nx run compapp:publish:production"
   },
   "private": true,
   "dependencies": {
