@@ -55,15 +55,17 @@ export class RegistrationEmailStageService {
       to: this.email,
       subject: 'Servicio País',
       html: `
-        <p>Hola,</p>
+        <p>Estimado/a</p>
 
-        <p>Estamos comprobando que este es tu email; copia y pega este c&oacute;digo 
-        de confirmaci&oacute;n de seis d&iacute;gitos en la pantalla de tu navegador.</p>
+        <p>
+        Estamos comprobando que tu e-mail esté correcto. Para continuar ingresando tus datos, copia y pega 
+        el siguiente código de confirmación de seis dígitos en tu formulario de postulación.
+        </p>
          
          <h1>${this.cseg}</h1>
          
        
-        <p> El equipo de Servicio Pais<br>
+        <p>Atte,<br> El equipo de Servicio Pais<br>
          &iquest;Necesita ayuda?&#160;P&oacute;ngase en contacto con nosotros.</p>
         `,
     });

@@ -2,17 +2,17 @@
 
 Bueno este proyecto actualmente es un clon del b2 starter y lo hemos hecho así para poder ocupar el sistema de autenticación de correo electrónico para hacer la pieza de correo electrónico validado.
 
-Actualmente tenemos dos componentes uno para subir archivos que crea un _Archivo_ en intervi directamente y el otro para el email validado. Hay una aplicación que se llama _all-components_, que lo que hace es incluir estos dos componentes en un js que se incluye en la página de antecedentes personales de postulaciones.
+Actualmente tenemos dos componentes uno para subir archivos que crea un _Archivo_ en intervi directamente y el otro para el email validado. Hay una aplicación que se llama _compapp_, que lo que hace es incluir estos dos componentes en un js que se incluye en la página de antecedentes personales de postulaciones.
 
 El email validado ocupa la app express: "api" que permite autenticar el correo electrónico.
 
-Para evitar problemas de CORS, esta aplicación debe estar proxeada por Apache y debe ejecutar ojalá con kubernetes.
+Para evitar problemas de CORS, esta aplicación debe estar proxeada por Apache, idealmente ejecutando con kubernetes.
 
-## app all-components
+## app compapp
 
 Esta app permite construir un sólo archivo js con los componentes: email validado y sube archivo.
 
-Se copia directamente a la carpeta en intervi, donde es incluido en la página host.
+Actualmente se copia directamente a la carpeta public/components en intervi, donde es incluido en la página host.
 
 Esto componentes debiesen ser incluidos desde algun nginx que separe
 el ciclo de vida de intervi del de los componentes.
@@ -20,10 +20,10 @@ el ciclo de vida de intervi del de los componentes.
 Para construir y copiar a intervi, debe estar como hermano debemos hacer:
 
 ```
-nx publish all-components
+nx publish compapp
 ```
 
-Revisar archivo `apps/all-components/project.json`
+Revisar archivo `apps/compapp/project.json`
 
 ## Servicio de autenticación de email
 
@@ -56,9 +56,14 @@ Se debe usar el archivo .env para cambiar el remitente y credenciales.
 El despliegue de aplicaciones de componentes react que se encuentran en un proyecto NX se desarrolla de la siguiente manera:
 
 Asignar un puerto.
+
 Lo primero es hacer una imagen con un Dockerfile que está en la carpeta de la aplicación
+
 Se tagea en el registry del microk8s
+
 Luego la primera vez se debe hacer un apply del archivo k8s para crear Deployment y Service.
+
 En los casos subsiguientes falta hacer la actualización de la aplicación y borrar el POD para que se vuelva a crear con la última versión, por eso estaba ocupando :latest como versión.
+
 Luego hacemos un ProxyPass en el apache hacia el puerto que tengamos en kubernetes con un sufijo de aplicación
 que usaremos en la etiqueta Script de la página en que lo vamos a incluir.
