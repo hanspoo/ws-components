@@ -51,22 +51,19 @@ export class RegistrationEmailStageService {
     const transporter = mailer();
 
     const response = transporter.sendMail({
-      from: '"Hans Poo" <hanscpoo@welinux.cl>', // sender address
+      from: '"Selección Superación Pobreza" <postseleccion@superacionpobreza.cl>', // sender address
       to: this.email,
-      subject: 'Servicio País',
+      subject: 'Selección Superación Pobreza',
       html: `
-        <p>Estimado/a</p>
+<p>Estimado/a</p>
 
-        <p>
-        Estamos comprobando que tu e-mail esté correcto. Para continuar ingresando tus datos, copia y pega 
-        el siguiente código de confirmación de seis dígitos en tu formulario de postulación.
-        </p>
-         
-         <h1>${this.cseg}</h1>
-         
-       
-        <p>Atte,<br> El equipo de Servicio Pais<br>
-         &iquest;Necesita ayuda?&#160;P&oacute;ngase en contacto con nosotros.</p>
+<p>Estamos comprobando que tu e-mail est&eacute; correcto. Para continuar ingresando tus datos, copia y pega el siguiente c&oacute;digo de confirmaci&oacute;n de seis d&iacute;gitos en tu formulario de postulaci&oacute;n; gracias.</p>
+
+<h1>${this.cseg}</h1>
+
+<p>Saludos cordiales,<br>
+Direcci&oacute;n de Selecci&oacute;n y Desarrollo de Recursos Humanos</p>         
+
         `,
     });
 
