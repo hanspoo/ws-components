@@ -5,7 +5,7 @@ COPY package-lock.json package.json tsconfig.base.json ./
 
 COPY apps/ apps/
 COPY libs/ libs/
-COPY .env.production .
+COPY .env .
 RUN npm ci
 RUN npm run build:api
 RUN npm run build:archimail
