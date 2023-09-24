@@ -1,21 +1,23 @@
-FROM node:18
+FROM node:18-buster-slim AS builder
 
-RUN git clone https://github.com/hanspoo/b2b-starter
+WORKDIR /app
+COPY package-lock.json package.json tsconfig.base.json ./
 
-WORKDIR /b2b-starter
+COPY apps/ apps/
+COPY libs/ libs/
+COPY .env.production .
+RUN npm ci
+RUN npm run build:api
+RUN npm run build:archimail
+RUN rm -rf node_modules
+RUN npm ci --production
 
-RUN npm install 
-RUN npm run test
-RUN npm run build
-RUN rm -rf node_modules/
-RUN npm i --production
-
-
-FROM node:18
-
-COPY --from=0 /b2b-starter/dist /b2b-starter/dist
-COPY --from=0 /b2b-starter/node_modules /b2b-starter/node_modules
-WORKDIR /b2b-starter/dist/apps/api
+FROM node:18-buster-slim
+COPY --from=builder /app/dist/apps/api /app
+COPY --from=builder /app/dist/apps/archimail /app/public
+COPY --from=builder /app/node_modules /app/node_modules
+COPY .env app
+WORKDIR /app
+COPY --from=builder /app/node_modules node_modules
 
 CMD ["node", "main.js"]
-

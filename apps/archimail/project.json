@@ -1,15 +1,15 @@
 {
-  "name": "compapp",
+  "name": "archimail",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/compapp/src",
+  "sourceRoot": "apps/archimail/src",
   "projectType": "application",
   "targets": {
-    "build": {
+    "buildbase": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/compapp"
+        "outputPath": "dist/apps/archimail"
       },
       "configurations": {
         "development": {
@@ -20,26 +20,26 @@
         }
       }
     },
-    "publish": {
+    "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx build compapp && cp $(ls dist/apps/compapp/assets/*.js) dist/apps/compapp/all-components.js && cp  dist/apps/compapp/all-components.js ../intervi/public/componentes"
+        "command": "nx buildbase archimail && mv dist/apps/archimail/assets/*.js dist/apps/archimail/assets/archimail.js"
       }
     },
     "serve": {
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "compapp:build"
+        "buildTarget": "archimail:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "compapp:build:development",
+          "buildTarget": "archimail:build:development",
           "hmr": true,
           "proxyConfig": "proxy.conf.json"
         },
         "production": {
-          "buildTarget": "compapp:build:production",
+          "buildTarget": "archimail:build:production",
           "hmr": false
         }
       }
@@ -48,36 +48,36 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "compapp:build"
+        "buildTarget": "archimail:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "compapp:build:development"
+          "buildTarget": "archimail:build:development"
         },
         "production": {
-          "buildTarget": "compapp:build:production"
+          "buildTarget": "archimail:build:production"
         }
       }
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{workspaceRoot}/coverage/apps/compapp"],
+      "outputs": ["{workspaceRoot}/coverage/apps/archimail"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/compapp"
+        "reportsDirectory": "../../coverage/apps/archimail"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/compapp/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/archimail/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "compapp:build"
+        "buildTarget": "archimail:build"
       }
     }
   },

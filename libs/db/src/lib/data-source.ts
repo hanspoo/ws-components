@@ -12,7 +12,7 @@ const LOGGING = !!process.env['DEBUG_DB'] || false;
 const testEnv = 'test';
 
 const dbArgs: any = {
-  type: process.env['NODE_ENV'] === testEnv ? 'sqlite' : 'postgres',
+  type: 'sqlite',
   host: process.env['VITE_DB_HOST'] || 'localhost',
   username: process.env['VITE_DB_USER'] || 'starter',
   password: process.env['VITE_DB_PASS'] || 'starter',

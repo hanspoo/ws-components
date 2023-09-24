@@ -35,7 +35,7 @@ app.use(
 //   next();
 // });
 app.use(express.json());
-app.use(express.static('../front'));
+app.use(express.static('public'));
 const authMiddleware = async function (
   req: ReqWithSession,
   res: Response,

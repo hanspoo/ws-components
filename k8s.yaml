@@ -1,35 +1,35 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: compapp
+  name: archimail
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: compapp
+      app: archimail
   template:
     metadata:
       labels:
-        app: compapp
+        app: archimail
     spec:
       containers:
-        - name: compapp
-          image: localhost:32000/compapp/1.0:latest
+        - name: archimail
+          image: localhost:32000/archimail/1.0:latest
           ports:
-            - containerPort: 31006
+            - containerPort: 31007
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: compapp
+  name: archimail
   labels:
-    app: compapp
+    app: archimail
 spec:
   type: LoadBalancer
   ports:
-    - port: 31006
-      targetPort: 31006
+    - port: 31007
+      targetPort: 3333
       protocol: TCP
-      nodePort: 31006
+      nodePort: 31007
   selector:
-    app: compapp
+    app: archimail
