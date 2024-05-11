@@ -39,7 +39,11 @@ export function CrearNota({ notebook, onCrear, onCancelar }: CrearNotaProps) {
   return (
     <div className={styles['container']}>
       <h4>Agregando observaciones</h4>
-      <textarea onChange={(e) => setText(e.target.value)}></textarea>
+      <textarea
+        rows={8}
+        cols={100}
+        onChange={(e) => setText(e.target.value)}
+      ></textarea>
       <div style={{ margin: '1em 0' }}>
         <button onClick={onCancelar}>Cancelar</button>
         <button disabled={text?.length < 4} onClick={crearNota}>
