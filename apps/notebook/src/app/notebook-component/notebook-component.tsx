@@ -29,7 +29,9 @@ export function NotebookComponent({
       {notebook.notes.map((n) => (
         <NoteComponent note={n} onEliminar={eliminarNota} notebook={notebook} />
       ))}
-      <button onClick={() => setCreando(true)}>Agregar observación</button>
+      <button className="btn btn-default" onClick={() => setCreando(true)}>
+        Agregar observación
+      </button>
       {creando && (
         <CrearNota
           onCrear={onCrear}

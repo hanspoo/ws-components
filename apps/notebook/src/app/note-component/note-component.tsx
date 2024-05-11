@@ -52,7 +52,9 @@ export function NoteComponent({
           Creado {dayjs(note.fecIng).format('DD/MM/YYYY HH:mm')} por{' '}
           {note.ingresadoPor}
         </em>{' '}
-        <button onClick={eliminar}>Eliminar</button>
+        <button className="btn btn-default" onClick={eliminar}>
+          Eliminar
+        </button>
       </p>
     </div>
   );
