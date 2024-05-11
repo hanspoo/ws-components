@@ -47,7 +47,7 @@ export function NoteComponent({
           }}
         ></div>
       </div>
-      <p style={{ marginTop: '1em' }}>
+      <p style={{ marginTop: '1em', color: '#aaa' }}>
         <em style={{ fontSize: 'small' }}>
           Creado {dayjs(note.fecIng).format('DD/MM/YYYY HH:mm')} por{' '}
           {note.ingresadoPor}
