@@ -41,16 +41,18 @@ export function NoteComponent({
   return (
     <div className={styles['container']}>
       <div>
-        <div style={{ float: 'right' }}>
-          <button onClick={eliminar}>Eliminar</button>
-        </div>
-        {note.text}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: note.text.replace(/\n/g, '<br/>'),
+          }}
+        ></div>
       </div>
       <p>
         <em style={{ fontSize: 'small' }}>
-          creado {dayjs(note.fecIng).format('DD/MM/YYYY HH:mm')} por{' '}
+          Creado {dayjs(note.fecIng).format('DD/MM/YYYY HH:mm')} por{' '}
           {note.ingresadoPor}
-        </em>
+        </em>{' '}
+        <button onClick={eliminar}>Eliminar</button>
       </p>
     </div>
   );
