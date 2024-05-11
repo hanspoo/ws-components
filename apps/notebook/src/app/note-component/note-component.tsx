@@ -1,9 +1,9 @@
-import { Spin } from 'antd';
 import axios from 'axios';
 import { useState } from 'react';
 import { Note } from '../types/Note';
 import styles from './note-component.module.css';
 import { Notebook } from '../types/Notebook';
+import dayjs from 'dayjs';
 
 export interface NoteComponentProps {
   note: Note;
@@ -40,16 +40,17 @@ export function NoteComponent({
 
   return (
     <div className={styles['container']}>
-      <div
-        style={{ backgroundColor: 'orange', padding: '1em', color: 'green' }}
-      >
+      <div>
         <div style={{ float: 'right' }}>
           <button onClick={eliminar}>Eliminar</button>
         </div>
         {note.text}
       </div>
       <p>
-        {new Date(note.fecIng) + ''} {note.ingresadoPor}
+        <em style={{ fontSize: 'small' }}>
+          creado {dayjs(note.fecIng).format('DD/MM/YYYY HH:mm')} por{' '}
+          {note.ingresadoPor}
+        </em>
       </p>
     </div>
   );
