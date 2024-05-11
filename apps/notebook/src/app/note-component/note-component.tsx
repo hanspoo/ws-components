@@ -43,7 +43,7 @@ export function NoteComponent({
       <div>
         <div
           dangerouslySetInnerHTML={{
-            __html: note.text.replace(/\n/g, '<br/>'),
+            __html: encodeURIComponent(note.text).replace(/\n/g, '<br/>'),
           }}
         ></div>
       </div>
